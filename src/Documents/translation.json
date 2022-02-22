@@ -1,0 +1,43 @@
+{
+  "header.home": "Acceuil",
+  "header.projects": "Projets",
+
+  "notfound.404": "Oops... 404 Non Trouvée",
+  "notfound.return": "Retour à la page d'acceuil",
+  "notfound.home": "Page d'acceuil",
+
+  "footer": "Vous aimez ce que je fais ? Simple! N'hésitez pas à laisser envoyer une ligne par e-mail ou LinkedIn. Si vos collègues sont susceptibles d'être intéressés par mon profil, n'hésitez pas à partager mon profil avec eux ",
+  "skills": "Compétences",
+  "experience": "Expérience professionnelle",
+  "abilities": "Capacités",
+  "education": "Éducations",
+  "seeall": "Voir tout",
+
+  "project.detail": "Detail projet",
+  "project.info": "Info sur le projet",
+  "project.work": "Type de travail",
+  "project.employer": "Employeur",
+  "project.country": "Pays",
+  "project.demo": "Lien de demo",
+  "project.prev": "Précédent",
+  "project.next": "Suivant",
+  "project.search": "Chercher",
+  "project.searchkey": "Rechercher par mots-clés",
+  "project.noresult": "Pas de résultat trouvé pour",
+  "project.clear": "Réinitialiser",
+  "project.allprojects": "Tous les projets",
+  "project.tech": "Technologie",
+
+  "hero.react": "Développeur ReactJS",
+  "hero.download": "Télécharger CV",
+  "hero.name": "Je suis RAILALA Andriatsimarivo",
+  "hero.view": "Voir Projets",
+  "hero.intro": "Je suis un développeur ReactJS avec 5 ans d'expérience dans le développement Web FullStack. Au cours de mes années d'expériences, j'ai eu l'opportunité de travailler sur plusieurs sites web et applications mobiles dans divers domaines. Expérimenté à toutes les étapes du cycle de développement de projets Web dynamiques.",
+
+  "abilities.bilingual": "Bilingue",
+  "abilities.bilingual.desc": "<b>Francophone</b> qui possède également de bonnes compétences en <b>anglais</b> de niveau avancé.",
+  "abilities.self": "Auto Motivé",
+  "abilities.self.desc": "<b>Enthousiaste</b> et <b>passionné</b> par la technologie. Aime <b>apprendre</b> de nouvelles technologies.",
+  "abilities.adapt": "Adaptabilité",
+  "abilities.adapt.desc": "<b>Sociable</b> et <b>soucieux</b> de comprendre et de répondre à tous les besoins des <b>clients</b>."
+}
