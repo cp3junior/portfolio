@@ -12,7 +12,7 @@ import Projects from "./Screens/Projects";
 import Project from "./Screens/Project";
 import NotFound from "./Screens/NotFound";
 
-import translation from "./Documents/translation.json";
+import translation from "./Assets/translation.json";
 
 export const AppContext = createContext();
 
@@ -42,6 +42,7 @@ const App = () => {
     localStorage.setItem("language", key);
   };
 
+  // Translation function
   const t = (text, key = "") => {
     if (language === "en") return text;
     return translation[key] ? translation[key] : "Pas de Traduction";

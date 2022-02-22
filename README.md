@@ -6,7 +6,8 @@ Some of these projects are private or has expired so I cannot provide any links.
 ## Technology Used
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).\
-It uses `sass` as styling and `react-router-dom` as navigation.
+It uses `sass` as styling and `react-router-dom` as navigation.\
+I also uses `TypeScript`.
 
 ## Installation steps
 

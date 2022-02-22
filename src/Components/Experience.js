@@ -1,7 +1,7 @@
 import React from "react";
 import { BsStar } from "react-icons/bs";
 
-import experiences from "./../Documents/experience.json";
+import experiences from "./../Assets/experience.json";
 
 import { AppContext } from "./../App";
 

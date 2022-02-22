@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { BsEyeFill, BsTags, BsPerson } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-import _projects from "./../Documents/project.json";
+import _projects from "./../Assets/project.json";
 
 import { AppContext } from "./../App";
 
@@ -41,7 +41,7 @@ const Projects = () => {
               <Link to={`/project/${item.id}`}>
                 <div className="blog-post rounded shadow">
                   <img
-                    src={require(`./../Documents/${item.image}`)}
+                    src={require(`./../Assets/${item.image}`)}
                     className="img-fluid rounded-top"
                     alt={language === "en" ? item.title : item.title_fr}
                   />

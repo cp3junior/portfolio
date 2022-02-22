@@ -1,7 +1,7 @@
 import React from "react";
 import { BsStar } from "react-icons/bs";
 
-import educations from "./../Documents/education.json";
+import educations from "./../Assets/education.json";
 
 import { AppContext } from "./../App";
 

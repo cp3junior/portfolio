@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 import { BsTags, BsPerson, BsSearch } from "react-icons/bs";
 
-import _projects from "./../Documents/project.json";
+import _projects from "./../Assets/project.json";
 import { AppContext } from "./../App";
 
 const Projects = () => {
@@ -60,7 +60,7 @@ const Projects = () => {
       <section
         className="bg-half d-table w-100"
         style={{
-          backgroundImage: `url(${require("./../Documents/bg2.png")})`,
+          backgroundImage: `url(${require("./../Assets/bg2.png")})`,
           backgroundPositionX: "right",
         }}
       >
@@ -102,7 +102,7 @@ const Projects = () => {
                     <Link to={`/project/${item.id}`}>
                       <div className="blog-post rounded shadow">
                         <img
-                          src={require(`./../Documents/${item.image}`)}
+                          src={require(`./../Assets/${item.image}`)}
                           className="img-fluid rounded-top"
                           alt={language === "en" ? item.title : item.title_fr}
                         />

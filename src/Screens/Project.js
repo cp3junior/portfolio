@@ -8,7 +8,7 @@ import {
 } from "react-icons/bs";
 
 import { AppContext } from "./../App";
-import _projects from "./../Documents/project.json";
+import _projects from "./../Assets/project.json";
 
 const Project = () => {
   const [countProjects, setCountProjects] = useState(0);
@@ -48,7 +48,7 @@ const Project = () => {
     if (path) {
       return (
         <img
-          src={require(`./../Documents/${path}`)}
+          src={require(`./../Assets/${path}`)}
           className="img-fluid mx-auto d-block rounded mb-4"
           alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
         />
@@ -61,7 +61,7 @@ const Project = () => {
       <section
         className="bg-half d-table w-100"
         style={{
-          backgroundImage: `url(${require("./../Documents/bg2.png")})`,
+          backgroundImage: `url(${require("./../Assets/bg2.png")})`,
           backgroundPositionX: "right",
         }}
       >

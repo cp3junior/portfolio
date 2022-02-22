@@ -5,11 +5,7 @@ import { MdMenu } from "react-icons/md";
 import { BsFillMoonStarsFill, BsTranslate } from "react-icons/bs";
 
 import { AppContext } from "./../App";
-
-const pages = [
-  { name: "Home", path: "/", key: "header.home" },
-  { name: "Projects", path: "/projects", key: "header.projects" },
-];
+import { pages } from "../Helpers/constants";
 
 const Header = () => {
   const [active, setActive] = useState("");
