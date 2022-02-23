@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { BsStar } from "react-icons/bs";
+import { v4 as uuidv4 } from "uuid";
+import ReactHtmlParser from "react-html-parser";
 
-import educations from "./../Assets/education.json";
+import { ExperienceInterface } from "../Helpers/interfaces";
+import { AppContext } from "../App";
 
-import { AppContext } from "./../App";
-
-const Education = () => {
+const Experience = () => {
   const { t, language } = React.useContext(AppContext);
+  const [experiences, setExperiences] = useState<ExperienceInterface[]>([]);
+
+  useLayoutEffect(() => {
+    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experience.json`;
+
+    fetch(experienceUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const newData = data.map((item: ExperienceInterface) => ({
+          id: uuidv4(),
+          ...item,
+        }));
+        setExperiences(newData);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   return (
     <section className="section bg-light">
@@ -16,24 +33,23 @@ const Education = () => {
             <div className="section-title">
               <div className="titles">
                 <h4 className="title title-line text-uppercase mb-4 pb-4">
-                  {t("Education", "education")}
+                  {t("Work Experience", "experience")}
                 </h4>
                 <span></span>
               </div>
             </div>
           </div>
         </div>
-
         <div className="row">
           <div className="col-12">
             <div className="main-icon rounded-pill text-center mt-4 pt-1">
               <BsStar className="fea icon-md-sm no-stroke" />
             </div>
             <div className="timeline-page pt-2 position-relative">
-              {educations.map((item, i) => {
+              {experiences.map((item, i) => {
                 if (i % 2 === 0) {
                   return (
-                    <div key={i} className="timeline-item mt-4">
+                    <div key={item?.id} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="duration date-label-left border rounded p-2 pl-4 pr-4 position-relative shadow text-left">
@@ -52,9 +68,12 @@ const Education = () => {
                                 : item.subtitle_fr}
                             </small>
                             <p className="timeline-subtitle mt-3 mb-0 text-muted">
-                              {language === "en"
-                                ? item.description
-                                : item.description_fr}
+                              {" "}
+                              {ReactHtmlParser(
+                                language === "en"
+                                  ? item.description
+                                  : item.description_fr
+                              )}
                             </p>
                           </div>
                         </div>
@@ -63,7 +82,7 @@ const Education = () => {
                   );
                 } else {
                   return (
-                    <div key={i} className="timeline-item mt-4">
+                    <div key={item?.id} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-1 order-2">
                           <div className="event event-description-left rounded p-4 border float-left text-right">
@@ -76,9 +95,11 @@ const Education = () => {
                                 : item.subtitle_fr}
                             </small>
                             <p className="timeline-subtitle mt-3 mb-0 text-muted">
-                              {language === "en"
-                                ? item.description
-                                : item.description_fr}
+                              {ReactHtmlParser(
+                                language === "en"
+                                  ? item.description
+                                  : item.description_fr
+                              )}
                             </p>
                           </div>
                         </div>
@@ -101,4 +122,4 @@ const Education = () => {
   );
 };
 
-export default Education;
+export default Experience;

@@ -1,37 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useLayoutEffect } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 import { BsTags, BsPerson, BsSearch } from "react-icons/bs";
 
-import _projects from "./../Assets/project.json";
-import { AppContext } from "./../App";
+import { ProjectInterface } from "../Helpers/interfaces";
+import { AppContext } from "../App";
 
 const Projects = () => {
-  const [countFull, setCountFull] = useState(0);
-  const [countContr, setCountContr] = useState(0);
-  const [projects, setProjects] = useState([]);
-  const [search, setSearch] = useState("");
-  const [showClearFilter, setShowClearFilter] = useState(false);
+  const [countFull, setCountFull] = useState<number>(0);
+  const [countContr, setCountContr] = useState<number>(0);
+  const [projects, setProjects] = useState<ProjectInterface[]>([]);
+  const [baseprojects, setBaseProjects] = useState<ProjectInterface[]>([]);
+  const [search, setSearch] = useState<string>("");
+  const [showClearFilter, setShowClearFilter] = useState<boolean>(false);
 
   const { t, language } = React.useContext(AppContext);
 
-  useEffect(() => {
-    let cF = 0,
-      cC = 0;
-    for (let i = 0; i < _projects.length; i++) {
-      const el = _projects[i];
-      if (el.type === "Contribution") cC++;
-      else cF++;
-    }
-    setCountFull(cF);
-    setCountContr(cC);
-    setProjects(_projects);
+  const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
+
+  useLayoutEffect(() => {
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/project.json`;
+
+    fetch(projectsUrl)
+      .then((res) => res.json())
+      .then((data: ProjectInterface[]) => {
+        let cF = 0,
+          cC = 0;
+        for (let i = 0; i < data.length; i++) {
+          const el = data[i];
+          if (el.type === "Contribution") cC++;
+          else cF++;
+        }
+        setCountFull(cF);
+        setCountContr(cC);
+        setProjects(data);
+        setBaseProjects(data);
+      })
+      .catch((e) => console.log(e));
   }, []);
 
-  const hangleChange = (e) => {
+  const hangleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target;
     setSearch(value);
-    const prjs = _projects.filter(
+    const prjs = baseprojects.filter(
       (item) =>
         item.title.toLowerCase().includes(value.toLowerCase()) ||
         item.employer.toLowerCase().includes(value.toLowerCase()) ||
@@ -40,18 +51,18 @@ const Projects = () => {
     setProjects(prjs);
   };
 
-  const categoryFilter = (key) => {
-    const prjs = _projects.filter((item) => item.type === key);
+  const categoryFilter = (key: string): void => {
+    const prjs = baseprojects.filter((item) => item.type === key);
     setProjects(prjs);
     setShowClearFilter(true);
   };
 
-  const hadleSubmit = (e) => {
+  const hadleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   };
 
   const clearFilter = () => {
-    setProjects(_projects);
+    setProjects(baseprojects);
     setShowClearFilter(false);
   };
 
@@ -60,7 +71,7 @@ const Projects = () => {
       <section
         className="bg-half d-table w-100"
         style={{
-          backgroundImage: `url(${require("./../Assets/bg2.png")})`,
+          backgroundImage: `url(${bgPath})`,
           backgroundPositionX: "right",
         }}
       >
@@ -97,12 +108,12 @@ const Projects = () => {
           <div className="row">
             <div className="col-lg-8 col-md-6">
               <div className="row">
-                {projects.map((item, i) => (
-                  <div key={i} className="col-lg-6 col-12 mb-4 pb-2">
+                {projects.map((item) => (
+                  <div key={item.id} className="col-lg-6 col-12 mb-4 pb-2">
                     <Link to={`/project/${item.id}`}>
                       <div className="blog-post rounded shadow">
                         <img
-                          src={require(`./../Assets/${item.image}`)}
+                          src={require(`./../Assets/projects/${item.image}.jpg`)}
                           className="img-fluid rounded-top"
                           alt={language === "en" ? item.title : item.title_fr}
                         />

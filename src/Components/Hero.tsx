@@ -4,16 +4,17 @@ import { ImDownload } from "react-icons/im";
 
 import { AppContext } from "../App";
 
-import pdf from "../Assets/RAILALA Andriatsimarivo CV.pdf";
-
 const Hero = () => {
   const { t } = React.useContext(AppContext);
+
+  const pdfPath = `${process.env.REACT_APP_CDN}Assets/RAILALA Andriatsimarivo CV.pdf`;
+  const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   return (
     <section
       className="bg-home bg-light d-table w-100"
       style={{
-        backgroundImage: `url(${require("./../Assets/bg2.png")})`,
+        backgroundImage: `url(${bgPath})`,
         backgroundPositionX: "right",
       }}
     >
@@ -41,7 +42,9 @@ const Hero = () => {
                   {t("View Projects", "hero.view")}
                 </Link>
                 <a
-                  href={pdf}
+                  target="_blank"
+                  rel="noreferrer"
+                  href={pdfPath}
                   download="CV RAILALA Andriatsimarivo.pdf"
                   className="btn btn-outline-primary rounded mb-2"
                 >

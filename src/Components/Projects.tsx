@@ -1,23 +1,29 @@
-import React, { useEffect, useState } from "react";
+import React, { useLayoutEffect, useState } from "react";
 import { BsEyeFill, BsTags, BsPerson } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-import _projects from "./../Assets/project.json";
-
-import { AppContext } from "./../App";
+import { ProjectInterface } from "../Helpers/interfaces";
+import { AppContext } from "../App";
 
 const Projects = () => {
-  const [projects, setProjects] = useState([]);
+  const [projects, setProjects] = useState<ProjectInterface[]>([]);
   const { t, language } = React.useContext(AppContext);
 
-  useEffect(() => {
-    // Limit projects to 3
-    const arr = [];
-    for (let i = 0; i < 3; i++) {
-      const el = _projects[i];
-      if (el) arr.push(el);
-    }
-    setProjects(arr);
+  useLayoutEffect(() => {
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/project.json`;
+
+    fetch(projectsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const arr = [];
+        // Limit projects to 3
+        for (let i = 0; i < 3; i++) {
+          const el = data[i];
+          if (el) arr.push(el);
+        }
+        setProjects(arr);
+      })
+      .catch((e) => console.log(e));
   }, []);
 
   return (
@@ -36,12 +42,12 @@ const Projects = () => {
           </div>
         </div>
         <div className="row">
-          {projects.map((item, i) => (
-            <div key={i} className="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+          {projects.map((item) => (
+            <div key={item.id} className="col-lg-4 col-md-6 col-12 mt-4 pt-2">
               <Link to={`/project/${item.id}`}>
                 <div className="blog-post rounded shadow">
                   <img
-                    src={require(`./../Assets/${item.image}`)}
+                    src={require(`./../Assets/projects/${item.image}.jpg`)}
                     className="img-fluid rounded-top"
                     alt={language === "en" ? item.title : item.title_fr}
                   />

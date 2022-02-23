@@ -4,12 +4,12 @@ import { Link, useLocation } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { BsFillMoonStarsFill, BsTranslate } from "react-icons/bs";
 
-import { AppContext } from "./../App";
+import { AppContext } from "../App";
 import { pages } from "../Helpers/constants";
 
 const Header = () => {
-  const [active, setActive] = useState("");
-  const [isSticky, setIsSticky] = useState(false);
+  const [active, setActive] = useState<string>("");
+  const [isSticky, setIsSticky] = useState<boolean>(false);
   const { pathname } = useLocation();
 
   const { changeLanguage, language, toggleTheme, t } = useContext(AppContext);
@@ -23,20 +23,19 @@ const Header = () => {
       },
       { passive: true }
     );
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     setActive(pathname);
+    window.scrollTo(0, 0);
   }, [pathname]);
 
-  const handleTheme = (e) => {
+  const handleTheme = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
     toggleTheme();
   };
 
-  const switchLang = (key) => {
+  const switchLang = (key: string): void => {
     if (language !== key) changeLanguage(key);
   };
 

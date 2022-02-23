@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import ReactHtmlParser from "react-html-parser";
 import { AiOutlineRight } from "react-icons/ai";
 import {
   BsHouseFill,
@@ -7,20 +8,22 @@ import {
   BsArrowLeftShort,
 } from "react-icons/bs";
 
-import { AppContext } from "./../App";
-import _projects from "./../Assets/project.json";
+import { AppContext } from "../App";
+import { ProjectInterface } from "../Helpers/interfaces";
 
 const Project = () => {
-  const [countProjects, setCountProjects] = useState(0);
-  const [project, setProject] = useState({
+  const [countProjects, setCountProjects] = useState<number>(0);
+  const [project, setProject] = useState<ProjectInterface>({
     id: 0,
     type: "",
     title: "",
     title_fr: "",
+    stack: "",
     url: "",
     image: "",
     thumbnail1: "",
     thumbnail2: "",
+    thumbnail3: "",
     description: "",
     description_fr: "",
     client: "",
@@ -28,32 +31,65 @@ const Project = () => {
     country_fr: "",
     employer: "",
   });
+
   const params = useParams();
   const navigate = useNavigate();
   const { t, language } = React.useContext(AppContext);
 
-  const projectId = parseInt(params.projectId, 10);
+  const projectId = parseInt(params.projectId ? params.projectId : "0", 10);
+  const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   useEffect(() => {
-    if (projectId > 0 && projectId < _projects.length + 1) {
-      setCountProjects(_projects.length);
-      const prj = _projects.filter((item) => item.id === projectId);
-      if (prj.length > 0) setProject(prj[0]);
-    } else {
-      navigate("/404");
-    }
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/project.json`;
+
+    fetch(projectsUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.length && projectId > 0 && projectId < data.length + 1) {
+          setCountProjects(data.length);
+
+          const prj = data.filter(
+            (item: ProjectInterface) => item.id === projectId
+          );
+          if (prj.length > 0) setProject(prj[0]);
+        } else {
+          navigate("/404");
+        }
+      })
+      .catch((e) => console.log(e));
   }, [projectId, navigate]);
 
-  const renderImg = (path) => {
+  const renderImg = (path: string | undefined) => {
     if (path) {
       return (
-        <img
-          src={require(`./../Assets/${path}`)}
-          className="img-fluid mx-auto d-block rounded mb-4"
-          alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
-        />
+        <picture>
+          <source
+            srcSet={require(`./../Assets/projects/${path}.webp`)}
+            type="image/webp"
+          />
+          <img
+            src={require(`./../Assets/projects/${path}.jpg`)}
+            className="img-fluid mx-auto d-block rounded mb-4"
+            alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
+          />
+        </picture>
       );
+
+      /* <img
+        src={require(`./../Assets/${path}`)}
+        className="img-fluid mx-auto d-block rounded mb-4"
+        alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
+      /> */
+
+      // return (
+      //   <img
+      //     src={require(`./../Assets/${path}`)}
+      //     className="img-fluid mx-auto d-block rounded mb-4"
+      //     alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
+      //   />
+      // );
     }
+    return null;
   };
 
   return (
@@ -61,7 +97,7 @@ const Project = () => {
       <section
         className="bg-half d-table w-100"
         style={{
-          backgroundImage: `url(${require("./../Assets/bg2.png")})`,
+          backgroundImage: `url(${bgPath})`,
           backgroundPositionX: "right",
         }}
       >
@@ -110,15 +146,13 @@ const Project = () => {
                     <h4 className="title mb-3 border-bottom pb-3">
                       {language === "en" ? project.title : project.title_fr}
                     </h4>
-                    <p
-                      className="text-muted"
-                      dangerouslySetInnerHTML={{
-                        __html:
-                          language === "en"
-                            ? project.description
-                            : project.description_fr,
-                      }}
-                    ></p>
+                    <p className="text-muted">
+                      {ReactHtmlParser(
+                        language === "en"
+                          ? project.description
+                          : project.description_fr
+                      )}
+                    </p>
                   </div>
                 </div>
                 <div className="col-lg-7 mt-4 pt-2">

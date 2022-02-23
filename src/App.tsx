@@ -4,23 +4,30 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./Styles/Dark.scss";
 import "./Styles/Custom.scss";
 
-import Header from "./Components/Header";
-import Footer from "./Components/Footer";
+import { ContextInterface, TranslationInterface } from "./Helpers/interfaces";
+import { Header, Footer } from "./Components";
+import { Home, Projects, Project, NotFound } from "./Screens";
 
-import Home from "./Screens/Home";
-import Projects from "./Screens/Projects";
-import Project from "./Screens/Project";
-import NotFound from "./Screens/NotFound";
-
-import translation from "./Assets/translation.json";
-
-export const AppContext = createContext();
+export const AppContext = createContext<ContextInterface>({
+  language: "",
+  t: () => "",
+  toggleTheme: () => "",
+  changeLanguage: () => "",
+});
 
 const App = () => {
-  const [isDark, setIsDark] = useState(false);
-  const [language, setLanguage] = useState("en");
+  const [isDark, setIsDark] = useState<boolean>(false);
+  const [language, setLanguage] = useState<string>("en");
+  const [translation, setTranslation] = useState<TranslationInterface>({});
 
   useEffect(() => {
+    const translationUrl = `${process.env.REACT_APP_CDN}Assets/translation.json`;
+
+    fetch(translationUrl)
+      .then((res) => res.json())
+      .then((data) => setTranslation(data))
+      .catch((e) => console.log(e));
+
     const thm = localStorage.getItem("theme");
     if (thm === "dark") setIsDark(true);
 
@@ -37,15 +44,15 @@ const App = () => {
     });
   };
 
-  const changeLanguage = (key) => {
+  const changeLanguage = (key: string): void => {
     setLanguage(key);
     localStorage.setItem("language", key);
   };
 
   // Translation function
-  const t = (text, key = "") => {
+  const t = (text: string, key: string = ""): string => {
     if (language === "en") return text;
-    return translation[key] ? translation[key] : "Pas de Traduction";
+    return translation[key] ? translation[key] : "";
   };
 
   return (
@@ -54,7 +61,7 @@ const App = () => {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route exact path="/" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="projects" element={<Projects />} />
             <Route path="project/:projectId" element={<Project />} />
             <Route path="404" element={<NotFound />} />

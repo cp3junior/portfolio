@@ -1,10 +1,12 @@
 import React from "react";
 import { AiFillGithub, AiFillMail, AiFillLinkedin } from "react-icons/ai";
 import { Link } from "react-router-dom";
-import { AppContext } from "./../App";
+
+import { AppContext } from "../App";
 
 const Footer = () => {
   const { t } = React.useContext(AppContext);
+
   return (
     <>
       <footer className="footer bg-dark">

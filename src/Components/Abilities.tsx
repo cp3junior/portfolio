@@ -1,6 +1,8 @@
 import React from "react";
 import { BsTranslate, BsAward, BsEmojiSunglasses } from "react-icons/bs";
-import { AppContext } from "./../App";
+import ReactHtmlParser from "react-html-parser";
+
+import { AppContext } from "../App";
 
 const Abilities = () => {
   const { t } = React.useContext(AppContext);
@@ -30,15 +32,14 @@ const Abilities = () => {
                 <h5 className="title">
                   {t("Bilingual", "abilities.bilingual")}
                 </h5>
-                <p
-                  className="text-muted mt-3 mb-0"
-                  dangerouslySetInnerHTML={{
-                    __html: t(
+                <p className="text-muted mt-3 mb-0">
+                  {ReactHtmlParser(
+                    t(
                       "Native <b>French</b> Speaker that also have a good business level <b>English</b> Language skills.",
                       "abilities.bilingual.desc"
-                    ),
-                  }}
-                ></p>
+                    )
+                  )}
+                </p>
               </div>
               <div className="big-icon">
                 <BsTranslate className="fea no-stroke icons" />
@@ -54,15 +55,14 @@ const Abilities = () => {
                 <h5 className="title">
                   {t("Self-motivated", "abilities.self")}
                 </h5>
-                <p
-                  className="text-muted mt-3 mb-0"
-                  dangerouslySetInnerHTML={{
-                    __html: t(
+                <p className="text-muted mt-3 mb-0">
+                  {ReactHtmlParser(
+                    t(
                       "<b>Enthusiastic</b> and <b>passionate</b> about technology. Likes <b>learning</b> new technologies.",
                       "abilities.self.desc"
-                    ),
-                  }}
-                ></p>
+                    )
+                  )}
+                </p>
               </div>
               <div className="big-icon">
                 <BsAward className="fea no-stroke icons" />
@@ -78,15 +78,14 @@ const Abilities = () => {
                 <h5 className="title">
                   {t("Adaptability", "abilities.adapt")}
                 </h5>
-                <p
-                  className="text-muted mt-3 mb-0"
-                  dangerouslySetInnerHTML={{
-                    __html: t(
+                <p className="text-muted mt-3 mb-0">
+                  {ReactHtmlParser(
+                    t(
                       "<b>Sociable</b> and <b>concerned</b> with understanding and meeting the needs of <b>customers</b>.",
                       "abilities.adapt.desc"
-                    ),
-                  }}
-                ></p>
+                    )
+                  )}
+                </p>
               </div>
               <div className="big-icon">
                 <BsEmojiSunglasses className="fea no-stroke icons" />

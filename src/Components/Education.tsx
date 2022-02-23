@@ -1,12 +1,28 @@
-import React from "react";
+import React, { useState, useLayoutEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { BsStar } from "react-icons/bs";
 
-import experiences from "./../Assets/experience.json";
+import { AppContext } from "../App";
+import { EducationInterface } from "../Helpers/interfaces";
 
-import { AppContext } from "./../App";
-
-const Experience = () => {
+const Education = () => {
   const { t, language } = React.useContext(AppContext);
+  const [educations, setEducations] = useState<EducationInterface[]>([]);
+
+  useLayoutEffect(() => {
+    const educationUrl = `${process.env.REACT_APP_CDN}Assets/education.json`;
+
+    fetch(educationUrl)
+      .then((res) => res.json())
+      .then((data) => {
+        const dataNew = data.map((item: EducationInterface) => ({
+          id: uuidv4(),
+          ...item,
+        }));
+        setEducations(dataNew);
+      })
+      .catch((e) => console.log(e));
+  }, []);
 
   return (
     <section className="section bg-light">
@@ -16,23 +32,24 @@ const Experience = () => {
             <div className="section-title">
               <div className="titles">
                 <h4 className="title title-line text-uppercase mb-4 pb-4">
-                  {t("Work Experience", "experience")}
+                  {t("Education", "education")}
                 </h4>
                 <span></span>
               </div>
             </div>
           </div>
         </div>
+
         <div className="row">
           <div className="col-12">
             <div className="main-icon rounded-pill text-center mt-4 pt-1">
               <BsStar className="fea icon-md-sm no-stroke" />
             </div>
             <div className="timeline-page pt-2 position-relative">
-              {experiences.map((item, i) => {
+              {educations.map((item, i) => {
                 if (i % 2 === 0) {
                   return (
-                    <div key={i} className="timeline-item mt-4">
+                    <div key={item?.id} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="duration date-label-left border rounded p-2 pl-4 pr-4 position-relative shadow text-left">
@@ -50,15 +67,11 @@ const Experience = () => {
                                 ? item.subtitle
                                 : item.subtitle_fr}
                             </small>
-                            <p
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  language === "en"
-                                    ? item.description
-                                    : item.description_fr,
-                              }}
-                              className="timeline-subtitle mt-3 mb-0 text-muted"
-                            ></p>
+                            <p className="timeline-subtitle mt-3 mb-0 text-muted">
+                              {language === "en"
+                                ? item.description
+                                : item.description_fr}
+                            </p>
                           </div>
                         </div>
                       </div>
@@ -66,7 +79,7 @@ const Experience = () => {
                   );
                 } else {
                   return (
-                    <div key={i} className="timeline-item mt-4">
+                    <div key={item?.id} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-1 order-2">
                           <div className="event event-description-left rounded p-4 border float-left text-right">
@@ -78,15 +91,11 @@ const Experience = () => {
                                 ? item.subtitle
                                 : item.subtitle_fr}
                             </small>
-                            <p
-                              className="timeline-subtitle mt-3 mb-0 text-muted"
-                              dangerouslySetInnerHTML={{
-                                __html:
-                                  language === "en"
-                                    ? item.description
-                                    : item.description_fr,
-                              }}
-                            ></p>
+                            <p className="timeline-subtitle mt-3 mb-0 text-muted">
+                              {language === "en"
+                                ? item.description
+                                : item.description_fr}
+                            </p>
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-2 order-1">
@@ -108,4 +117,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Education;

@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AppContext } from "./../App";
+
+import { AppContext } from "../App";
 
 const NotFound = () => {
   const { t } = useContext(AppContext);
+
   return (
     <section className="section pb-6">
       <div className="container mt-100 mt-60">
