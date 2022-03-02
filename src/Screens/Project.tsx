@@ -69,7 +69,7 @@ const Project = () => {
           />
           <img
             src={require(`./../Assets/projects/${path}.jpg`)}
-            className="img-fluid mx-auto d-block rounded mb-4"
+            className="img-fluid mx-auto d-block rounded mb-4 shadow"
             alt={`Illustration of ${
               language === "en" ? project.title : project.title_fr
             }`}
@@ -178,7 +178,7 @@ const Project = () => {
                           <b>Demo : </b>
                           <span>
                             <a
-                              href={project.url}
+                              href={`https://${project.url}`}
                               target="_blank"
                               className="text-primary"
                               rel="noreferrer"

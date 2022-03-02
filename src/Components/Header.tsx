@@ -10,6 +10,7 @@ import { pages } from "../Helpers/constants";
 const Header = () => {
   const [active, setActive] = useState<string>("");
   const [isSticky, setIsSticky] = useState<boolean>(false);
+  const [showMobileNav, setShowMobileNav] = useState<boolean>(false);
   const { pathname } = useLocation();
 
   const { changeLanguage, language, toggleTheme, t } = useContext(AppContext);
@@ -29,6 +30,12 @@ const Header = () => {
     setActive(pathname);
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const handleMobileNav = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setShowMobileNav((prev) => !prev);
+    console.log(showMobileNav);
+  };
 
   const handleTheme = (e: React.MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault();
@@ -50,18 +57,22 @@ const Header = () => {
           RAILALA
         </Link>
         <button
-          className="navbar-toggler"
+          className={`navbar-toggler ${showMobileNav ? "active" : ""}`}
           type="button"
           data-toggle="collapse"
           data-target="#navbarCollapse"
           aria-controls="navbarCollapse"
-          aria-expanded="false"
+          aria-expanded={showMobileNav ? "true" : "false"}
           aria-label="Toggle navigation"
+          onClick={handleMobileNav}
         >
           <MdMenu />
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarCollapse">
+        <div
+          className={`collapse navbar-collapse ${showMobileNav ? "show" : ""}`}
+          id="navbarCollapse"
+        >
           <ul className="navbar-nav navbar-nav-link mx-auto">
             {pages.map((item) => (
               <li

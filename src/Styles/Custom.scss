@@ -126,3 +126,17 @@ nav {
     }
   }
 }
+
+.navbar-toggler {
+  &.active {
+    svg {
+      transform: rotate(90deg);
+      path {
+        color: #2d84fb;
+      }
+    }
+  }
+  svg {
+    transition: all 0.4s ease;
+  }
+}
