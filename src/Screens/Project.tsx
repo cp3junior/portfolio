@@ -10,6 +10,7 @@ import {
 
 import { AppContext } from "../App";
 import { ProjectInterface } from "../Helpers/interfaces";
+import { projectImageBasePath } from "../Helpers/constants";
 
 const Project = () => {
   const [countProjects, setCountProjects] = useState<number>(0);
@@ -64,11 +65,11 @@ const Project = () => {
       return (
         <picture>
           <source
-            srcSet={require(`./../Assets/projects/${path}.webp`)}
+            srcSet={`${projectImageBasePath}${path}.webp`}
             type="image/webp"
           />
           <img
-            src={require(`./../Assets/projects/${path}.jpg`)}
+            src={`${projectImageBasePath}${path}.jpg`}
             className="img-fluid mx-auto d-block rounded mb-4 shadow"
             alt={`Illustration of ${
               language === "en" ? project.title : project.title_fr

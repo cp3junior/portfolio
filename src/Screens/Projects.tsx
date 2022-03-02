@@ -3,8 +3,9 @@ import { Link } from "react-router-dom";
 import { AiOutlineRight } from "react-icons/ai";
 import { BsTags, BsPerson, BsSearch } from "react-icons/bs";
 
-import { ProjectInterface } from "../Helpers/interfaces";
 import { AppContext } from "../App";
+import { ProjectInterface } from "../Helpers/interfaces";
+import { projectImageBasePath } from "../Helpers/constants";
 
 const Projects = () => {
   const [countFull, setCountFull] = useState<number>(0);
@@ -114,11 +115,11 @@ const Projects = () => {
                       <div className="blog-post rounded shadow">
                         <picture>
                           <source
-                            srcSet={require(`./../Assets/projects/${item.image}.webp`)}
+                            srcSet={`${projectImageBasePath}${item.image}.webp`}
                             type="image/webp"
                           />
                           <img
-                            src={require(`./../Assets/projects/${item.image}.jpg`)}
+                            src={`${projectImageBasePath}${item.image}.jpg`}
                             className="img-fluid rounded-top"
                             alt={`Illustration of ${
                               language === "en" ? item.title : item.title_fr

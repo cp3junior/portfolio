@@ -5,6 +5,8 @@ export const pages: PageInterface[] = [
   { name: "Projects", path: "/projects", key: "header.projects" },
 ];
 
+export const projectImageBasePath = `${process.env.REACT_APP_CDN}Assets/projects/`;
+
 export const skills: SkillsInterface[] = [
   {
     id: 1,
