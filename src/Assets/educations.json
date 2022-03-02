@@ -1,5 +1,6 @@
 [
   {
+    "id": 1,
     "start": "Sept. 2017",
     "start_fr": "Sept. 2017",
     "end": "June 2019",
@@ -12,6 +13,7 @@
     "description_fr": "Master spécialisé en Intelligence Artificielle. Nous avons appris les bases du 'Reinforcement Learning' et du 'Machine Learning'."
   },
   {
+    "id": 2,
     "start": "Sept. 2013",
     "start_fr": "Sept. 2013",
     "end": "June 2017",
@@ -24,6 +26,7 @@
     "description_fr": "Licence avec spécialisation en génie logiciel. Nous avons appris la programmation et le développement de logiciels."
   },
   {
+    "id": 3,
     "start": "Dec. 2012",
     "start_fr": "Dec. 2012",
     "end": "June 2013",
@@ -36,6 +39,7 @@
     "description_fr": "L'apprentissage de la langue chinoise est indispensable à l'arrivée en Chine. Nous avons dû passer par une formation de 6 mois avant de commencer nos filières."
   },
   {
+    "id": 4,
     "start": "Sept. 2008",
     "start_fr": "Sept. 2008",
     "end": "June 2009",

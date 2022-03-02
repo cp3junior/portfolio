@@ -1,5 +1,4 @@
 import React, { useState, useLayoutEffect } from "react";
-import { v4 as uuidv4 } from "uuid";
 import { BsStar } from "react-icons/bs";
 
 import { AppContext } from "../App";
@@ -10,16 +9,12 @@ const Education = () => {
   const [educations, setEducations] = useState<EducationInterface[]>([]);
 
   useLayoutEffect(() => {
-    const educationUrl = `${process.env.REACT_APP_CDN}Assets/education.json`;
+    const educationUrl = `${process.env.REACT_APP_CDN}Assets/educations.json`;
 
     fetch(educationUrl)
       .then((res) => res.json())
       .then((data) => {
-        const dataNew = data.map((item: EducationInterface) => ({
-          id: uuidv4(),
-          ...item,
-        }));
-        setEducations(dataNew);
+        setEducations(data);
       })
       .catch((e) => console.log(e));
   }, []);
@@ -49,7 +44,7 @@ const Education = () => {
               {educations.map((item, i) => {
                 if (i % 2 === 0) {
                   return (
-                    <div key={item?.id} className="timeline-item mt-4">
+                    <div key={item.id} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="duration date-label-left border rounded p-2 pl-4 pr-4 position-relative shadow text-left">
@@ -79,7 +74,7 @@ const Education = () => {
                   );
                 } else {
                   return (
-                    <div key={item?.id} className="timeline-item mt-4">
+                    <div key={item.id} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-1 order-2">
                           <div className="event event-description-left rounded p-4 border float-left text-right">

@@ -11,6 +11,11 @@ export interface PageInterface {
   key: string;
 }
 
+export interface SkillsInterface {
+  id: number;
+  value: string;
+}
+
 export interface ProjectInterface {
   id: number;
   type: string;
@@ -31,7 +36,7 @@ export interface ProjectInterface {
 }
 
 export interface ExperienceInterface {
-  id?: string;
+  id: number;
   start: string;
   start_fr: string;
   end: string;
@@ -45,7 +50,7 @@ export interface ExperienceInterface {
 }
 
 export interface EducationInterface {
-  id?: string;
+  id: number;
   start: string;
   start_fr: string;
   end: string;
@@ -56,11 +61,6 @@ export interface EducationInterface {
   subtitle_fr: string;
   description: string;
   description_fr: string;
-}
-
-export interface SkillInterface {
-  id: string;
-  value: string;
 }
 
 export interface TranslationInterface {

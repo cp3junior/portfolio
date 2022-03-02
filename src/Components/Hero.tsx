@@ -5,9 +5,11 @@ import { ImDownload } from "react-icons/im";
 import { AppContext } from "../App";
 
 const Hero = () => {
-  const { t } = React.useContext(AppContext);
+  const { t, language } = React.useContext(AppContext);
 
-  const pdfPath = `${process.env.REACT_APP_CDN}Assets/RAILALA Andriatsimarivo CV.pdf`;
+  const pdfPath = `${
+    process.env.REACT_APP_CDN
+  }Assets/RAILALA Andriatsimarivo CV ${language === "en" ? "EN" : "FR"}.pdf`;
   const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   return (
@@ -22,12 +24,12 @@ const Hero = () => {
         <div className="row align-items-center">
           <div className="col-lg-12">
             <div className="title-heading mt-5">
-              <h6 className="sub-title">
+              <h1 className="sub-title mainsub">
                 {t("ReactJS Developer", "hero.react")}
-              </h6>
-              <h1 className="heading text-primary mb-3">
-                {t("I'm RAILALA Andriatsimarivo", "hero.name")}
               </h1>
+              <h2 className="heading text-primary mb-3">
+                {t("I'm RAILALA Andriatsimarivo", "hero.name")}
+              </h2>
               <p className="para-desc text-dark">
                 {t(
                   "I am a ReactJS Developer with 5 years of experience in FullStack Web Development. During my years of experiences, I have had the opportunity to work on several websites and mobile applications in various fields. Experienced with all stages of the development cycle for dynamic web projects.",
