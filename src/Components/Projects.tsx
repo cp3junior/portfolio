@@ -10,7 +10,7 @@ const Projects = () => {
   const { t, language } = React.useContext(AppContext);
 
   useLayoutEffect(() => {
-    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/project.json`;
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects.json`;
 
     fetch(projectsUrl)
       .then((res) => res.json())
@@ -46,11 +46,19 @@ const Projects = () => {
             <div key={item.id} className="col-lg-4 col-md-6 col-12 mt-4 pt-2">
               <Link to={`/project/${item.id}`}>
                 <div className="blog-post rounded shadow">
-                  <img
-                    src={require(`./../Assets/projects/${item.image}.jpg`)}
-                    className="img-fluid rounded-top"
-                    alt={language === "en" ? item.title : item.title_fr}
-                  />
+                  <picture>
+                    <source
+                      srcSet={require(`./../Assets/projects/${item.image}.webp`)}
+                      type="image/webp"
+                    />
+                    <img
+                      src={require(`./../Assets/projects/${item.image}.jpg`)}
+                      className="img-fluid rounded-top"
+                      alt={`Illustration of ${
+                        language === "en" ? item.title : item.title_fr
+                      }`}
+                    />
+                  </picture>
                   <div className="content pt-4 pb-4 p-3">
                     <ul className="list-unstyled d-flex justify-content-between post-meta">
                       <li>

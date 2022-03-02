@@ -40,7 +40,7 @@ const Project = () => {
   const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   useEffect(() => {
-    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/project.json`;
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects.json`;
 
     fetch(projectsUrl)
       .then((res) => res.json())
@@ -70,24 +70,12 @@ const Project = () => {
           <img
             src={require(`./../Assets/projects/${path}.jpg`)}
             className="img-fluid mx-auto d-block rounded mb-4"
-            alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
+            alt={`Illustration of ${
+              language === "en" ? project.title : project.title_fr
+            }`}
           />
         </picture>
       );
-
-      /* <img
-        src={require(`./../Assets/${path}`)}
-        className="img-fluid mx-auto d-block rounded mb-4"
-        alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
-      /> */
-
-      // return (
-      //   <img
-      //     src={require(`./../Assets/${path}`)}
-      //     className="img-fluid mx-auto d-block rounded mb-4"
-      //     alt={`Pic ${language === "en" ? project.title : project.title_fr}`}
-      //   />
-      // );
     }
     return null;
   };

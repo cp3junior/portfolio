@@ -116,3 +116,13 @@ nav {
     font-size: 16px !important;
   }
 }
+
+.timeline-item {
+  .event {
+    p {
+      em {
+        color: #4f4f4f;
+      }
+    }
+  }
+}
