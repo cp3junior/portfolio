@@ -209,3 +209,17 @@ section {
     }
   }
 }
+
+@media (max-width: 992px) {
+  .herosection {
+    .container {
+      h2,
+      p {
+        span {
+          background-color: #ffffffdb;
+          padding: 2px 0;
+        }
+      }
+    }
+  }
+}

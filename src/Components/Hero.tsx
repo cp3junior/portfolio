@@ -14,7 +14,7 @@ const Hero = () => {
 
   return (
     <section
-      className="bg-home bg-light d-table w-100"
+      className="bg-home bg-light d-table w-100 herosection"
       style={{
         backgroundImage: `url(${bgPath})`,
         backgroundPositionX: "right",
@@ -28,13 +28,15 @@ const Hero = () => {
                 {t("ReactJS Developer", "hero.react")}
               </h1>
               <h2 className="heading text-primary mb-3">
-                {t("I'm RAILALA Andriatsimarivo", "hero.name")}
+                <span>{t("I'm RAILALA Andriatsimarivo", "hero.name")}</span>
               </h2>
               <p className="para-desc text-dark">
-                {t(
-                  "I am a ReactJS Developer with 5 years of experience in FullStack Web Development. During my years of experiences, I have had the opportunity to work on several websites and mobile applications in various fields. Experienced with all stages of the development cycle for dynamic web projects.",
-                  "hero.intro"
-                )}
+                <span>
+                  {t(
+                    "I am a ReactJS Developer with 5 years of experience in FullStack Web Development. During my years of experiences, I have had the opportunity to work on several websites and mobile applications in various fields. Experienced with all stages of the development cycle for dynamic web projects.",
+                    "hero.intro"
+                  )}
+                </span>
               </p>
               <div className="mt-4 pt-2">
                 <Link

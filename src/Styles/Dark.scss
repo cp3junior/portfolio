@@ -1332,4 +1332,14 @@ $light-red: #dd2020;
       text-decoration: underline !important;
     }
   }
+
+  @media (max-width: 992px) {
+    .herosection {
+      .container {
+        p {
+          color: #3c4858 !important;
+        }
+      }
+    }
+  }
 }

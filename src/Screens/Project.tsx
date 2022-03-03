@@ -130,7 +130,7 @@ const Project = () => {
       <section className="section">
         <div className="container">
           <div className="row">
-            <div className="col-lg-7 col-md-6 order-2 order-md-1 mt-4 mt-sm-0 pt-2 pt-sm-0">
+            <div className="col-lg-7 col-md-6 mt-4 mt-sm-0 pt-2 pt-sm-0">
               <div className="row mr-lg-4">
                 <div className="col-lg-12">
                   <div className="work-details">
@@ -197,7 +197,7 @@ const Project = () => {
               </div>
             </div>
 
-            <div className="col-lg-5 col-md-6 order-1 order-md-2">
+            <div className="col-lg-5 col-md-6">
               <div className="port-images sticky-sidebar">
                 {renderImg(project.image)}
                 {renderImg(project.thumbnail1)}
