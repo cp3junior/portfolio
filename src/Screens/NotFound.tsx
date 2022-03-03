@@ -1,10 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { AppContext } from "../App";
 
 const NotFound = () => {
   const { t } = useContext(AppContext);
+
+  useEffect(() => {
+    document.title = "RAILALA Andriatsimarivo Resume - 404";
+  }, []);
 
   return (
     <section className="section pb-6">
