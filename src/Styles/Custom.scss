@@ -1,10 +1,15 @@
+// Variables
+$dark-blue: #0568f0;
+$light-blue: #2d84fb;
+$dark-gray: #3c4858;
+
 // Custom css
 nav {
   #nav-bar-style {
     font-weight: bold;
     font-family: Montserrat, sans-serif;
     line-height: 1.5;
-    color: #0568f0 !important;
+    color: $dark-blue !important;
   }
 }
 .footer-brand {
@@ -14,14 +19,14 @@ nav {
   line-height: 1.5;
   color: white;
   &:hover {
-    color: #0568f0;
+    color: $dark-blue;
   }
 }
 .header-icons {
   li {
     > span {
-      color: #3c4858;
-      border: 2px solid #3c4858;
+      color: $dark-gray;
+      border: 2px solid $dark-gray;
       display: inline-block;
       height: 32px;
       text-align: center;
@@ -39,22 +44,24 @@ nav {
         }
         span {
           cursor: pointer;
+          font-weight: 600;
+          font-family: Montserrat, sans-serif;
           &.english-lang {
             margin-right: 8px;
             border-right: 1px solid #adb5bd;
             padding-right: 8px;
           }
           &.active {
-            color: #0568f0;
+            color: $dark-blue;
           }
           &:hover {
-            color: #3c4858 !important;
+            color: $dark-gray !important;
           }
         }
       }
       &:hover {
-        border-color: #0568f0;
-        background-color: #0568f0;
+        border-color: $dark-blue;
+        background-color: $dark-blue;
         cursor: pointer;
         color: white !important;
         span {
@@ -67,7 +74,7 @@ nav {
 .service-wrapper {
   .text-muted {
     b {
-      color: #0568f0;
+      color: $dark-blue;
     }
   }
 }
@@ -99,7 +106,7 @@ nav {
   }
 }
 .bg-overlay-gray {
-  background-color: #f9fafd8f !important;
+  background-color: #a1a8bb8f !important;
 }
 
 .disabled-link {
@@ -110,7 +117,7 @@ nav {
 .categoryfilt {
   cursor: pointer;
   &:hover {
-    color: #0568f0;
+    color: $dark-blue;
   }
 }
 .searchform {
@@ -141,6 +148,10 @@ nav {
 
 .timeline-item {
   .event {
+    b,
+    p {
+      font-family: Montserrat, sans-serif;
+    }
     p {
       em {
         color: #4f4f4f;
@@ -154,7 +165,7 @@ nav {
     svg {
       transform: rotate(90deg);
       path {
-        color: #0568f0;
+        color: $dark-blue;
       }
     }
   }
@@ -193,7 +204,7 @@ section {
     .nav-link {
       font-weight: 900 !important;
       &:hover {
-        color: #2d84fb !important;
+        color: $light-blue !important;
       }
     }
   }
