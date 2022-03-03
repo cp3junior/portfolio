@@ -54,7 +54,7 @@ const Header = () => {
     >
       <div className="container">
         <Link className="navbar-brand" id="nav-bar-style" to="/">
-          RAILALA
+          RAILALA.COM
         </Link>
         <button
           className={`navbar-toggler ${showMobileNav ? "active" : ""}`}
@@ -88,17 +88,16 @@ const Header = () => {
 
           <ul className="list-unstyled mb-0 mt-2 mt-sm-0 social-icon header-icons">
             <li className="list-inline-item mr-2">
-              <a
-                href="#"
+              <span
                 onClick={handleTheme}
                 title="Dark/Light Theme"
                 className="first"
               >
                 <BsFillMoonStarsFill />
-              </a>
+              </span>
             </li>
             <li className="list-inline-item">
-              <a className="language-switcher" title="Language switcher">
+              <span className="language-switcher" title="Language switcher">
                 <BsTranslate />
                 <span
                   onClick={() => switchLang("en")}
@@ -116,7 +115,7 @@ const Header = () => {
                 >
                   FR
                 </span>
-              </a>
+              </span>
             </li>
           </ul>
         </div>
@@ -125,4 +124,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default React.memo(Header);

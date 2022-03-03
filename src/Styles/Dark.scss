@@ -1289,4 +1289,17 @@
   #style-switcher .bottom a.settings {
     background: none repeat scroll 0 0 #1f2d3d;
   }
+  .header-icons {
+    li {
+      > span {
+        color: white !important;
+        border-color: white !important;
+        background-color: #495057 !important;
+        &:hover {
+          border-color: #0568f0 !important;
+          background-color: #0568f0 !important;
+        }
+      }
+    }
+  }
 }

@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="row justify-content-center">
             <div className="col-12 text-center">
               <Link to="/" className="footer-brand">
-                RAILALA
+                RAILALA.COM
               </Link>
               <p className="para-desc mx-auto mt-4">
                 {t(

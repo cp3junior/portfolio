@@ -2,17 +2,35 @@
 nav {
   #nav-bar-style {
     font-weight: bold;
-    color: #2d84fb !important;
+    font-family: Montserrat, sans-serif;
+    line-height: 1.5;
+    color: #0568f0 !important;
   }
 }
 .footer-brand {
   font-size: 1.5rem;
   font-weight: bold;
+  font-family: Montserrat, sans-serif;
+  line-height: 1.5;
+  color: white;
+  &:hover {
+    color: #0568f0;
+  }
 }
 .header-icons {
   li {
-    a {
-      border-width: 2px !important;
+    > span {
+      color: #3c4858;
+      border: 2px solid #3c4858;
+      display: inline-block;
+      height: 32px;
+      text-align: center;
+      font-size: 15px;
+      width: 32px;
+      line-height: 30px;
+      transition: all 0.4s ease;
+      border-radius: 7px;
+
       &.language-switcher {
         width: auto;
         padding: 0 8px;
@@ -27,7 +45,7 @@ nav {
             padding-right: 8px;
           }
           &.active {
-            color: #2d84fb;
+            color: #0568f0;
           }
           &:hover {
             color: #3c4858 !important;
@@ -35,6 +53,10 @@ nav {
         }
       }
       &:hover {
+        border-color: #0568f0;
+        background-color: #0568f0;
+        cursor: pointer;
+        color: white !important;
         span {
           color: white !important;
         }
@@ -45,7 +67,7 @@ nav {
 .service-wrapper {
   .text-muted {
     b {
-      color: #2d84fb;
+      color: #0568f0;
     }
   }
 }
@@ -61,19 +83,19 @@ nav {
 
 .page-next-level .page-next.custom {
   li {
+    margin: 0;
+    svg {
+      width: 12px;
+      stroke-width: 50;
+      height: 12px;
+      margin: 0 5px 3px;
+    }
     &::after {
       display: none;
     }
     a {
       padding-right: 0;
     }
-  }
-  svg {
-    width: 12px;
-    stroke-width: 50;
-    height: 12px;
-    margin-bottom: 3px;
-    margin-right: 4px;
   }
 }
 .bg-overlay-gray {
@@ -88,7 +110,7 @@ nav {
 .categoryfilt {
   cursor: pointer;
   &:hover {
-    color: #2d84fb;
+    color: #0568f0;
   }
 }
 .searchform {
@@ -132,11 +154,47 @@ nav {
     svg {
       transform: rotate(90deg);
       path {
-        color: #2d84fb;
+        color: #0568f0;
       }
     }
   }
   svg {
     transition: all 0.4s ease;
+  }
+}
+
+.skillsection {
+  .container {
+    .section-title {
+      h3 {
+        font-size: 24px !important;
+      }
+    }
+    .hobbies {
+      h4 {
+        font-size: 16px !important;
+      }
+    }
+  }
+}
+
+section {
+  .text-muted {
+    color: #6c757d !important;
+  }
+}
+
+.footer {
+  color: #e7e7e7 !important;
+}
+
+.navbar-nav {
+  .nav-item {
+    .nav-link {
+      font-weight: 900 !important;
+      &:hover {
+        color: #2d84fb !important;
+      }
+    }
   }
 }

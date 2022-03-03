@@ -1,0 +1,90 @@
+#preloader #status .spinner > div,
+.back-to-top:hover,
+.bg-modern.bg-animation-right:after,
+.bg-primary,
+.btn-outline-primary.active,
+.btn-outline-primary.focus,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-primary,
+.nav-pills .nav-link.active,
+.owl-theme .owl-controls .owl-page.active span,
+.owl-theme .owl-controls.clickable .owl-page:hover span,
+.pagination .active a,
+.pagination li a:hover,
+.portfolioFilter li a.active,
+.portfolioFilter li a:hover,
+.section-title .titles .title.title-line:after,
+.section-title .titles .title.title-line:before,
+.service-wrapper:hover:after,
+.sidebar .widget .tagcloud > a:hover,
+.social-icon li a:hover {
+  background-color: #0568f0 !important;
+}
+.blog-post .content .title:hover,
+.blog-post .content a:hover,
+.btn-outline-primary,
+.comment-area .media-list .media .media-body a:hover,
+.interests-desc:hover .icon,
+.nav-sticky.navbar-custom .navbar-nav .nav-item .nav-link:active,
+.nav-sticky.navbar-custom .navbar-nav .nav-item .nav-link:hover,
+.nav-sticky.navbar-custom .navbar-nav .nav-item.active .nav-link .nav-link,
+.navbar-custom .navbar-nav .dropdown .dropdown-item:focus,
+.navbar-custom .navbar-nav .dropdown .dropdown-item:hover,
+.navbar-custom .navbar-nav .nav-item .nav-link:active,
+.navbar-custom .navbar-nav .nav-item .nav-link:hover,
+.navbar-custom .navbar-nav .nav-item.active .nav-link,
+.navbar-custom .navbar-nav.navbar-nav-link .nav-item .nav-link:active,
+.navbar-custom .navbar-nav.navbar-nav-link .nav-item .nav-link:hover,
+.navbar-custom .navbar-nav.navbar-nav-link.active .nav-link,
+.page-next-level .page-next li a:hover,
+.portfolio-box .gallary-title .title:hover,
+.portfolio-box .portfolio-box-img .overlay-work .work-content .work-icon:hover,
+.service-wrapper:hover .big-icon .icons,
+.service-wrapper:hover .content .title,
+.sidebar .widget .catagories li a:hover,
+.sidebar .widget .post-recent .post-recent-content a:hover,
+.text-primary,
+.timeline-page .timeline-item .event:hover .title {
+  color: #0568f0 !important;
+}
+.btn-outline-primary,
+.btn-outline-primary.active,
+.btn-outline-primary.focus,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-primary,
+.nav-pills .nav-link.active,
+.owl-theme .owl-controls .owl-page span,
+.pagination .active a,
+.pagination li a:hover,
+.section-title .titles span:after,
+.section-title .titles span:before,
+.social-icon li a:hover {
+  border-color: #0568f0 !important;
+}
+a.text-primary:focus,
+a.text-primary:hover {
+  color: #2d84fb !important;
+}
+.btn-outline-primary.active,
+.btn-outline-primary.focus,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary:hover,
+.btn-outline-primary:not(:disabled):not(.disabled):active,
+.btn-primary {
+  box-shadow: 0 3px 5px 0 rgba(45, 132, 251, 0.3);
+}
+.btn-primary.active,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary:hover {
+  background-color: #2d84fb !important;
+  border-color: #2d84fb !important;
+}

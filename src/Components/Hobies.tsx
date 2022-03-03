@@ -8,15 +8,15 @@ const Hobies = () => {
   const { t } = React.useContext(AppContext);
 
   return (
-    <section className="section pb-10 pt-0">
+    <section className="section pb-10 pt-0 skillsection">
       <div className="container mt-100 mt-60">
         <div className="row justify-content-center">
           <div className="col-12 text-center">
             <div className="section-title">
               <div className="titles">
-                <h4 className="title title-line text-uppercase mb-4 pb-4">
+                <h3 className="title title-line text-uppercase mb-4 pb-4">
                   {t("Skills", "skills")}
-                </h4>
+                </h3>
                 <span></span>
               </div>
             </div>
@@ -31,7 +31,7 @@ const Hobies = () => {
                     <AiOutlineCode className="icon fea icon-md-sm" />
                   </div>
                   <div className="content">
-                    <h6 className="title mb-0">{item.value}</h6>
+                    <h4 className="title mb-0">{item.value}</h4>
                   </div>
                 </div>
               </div>

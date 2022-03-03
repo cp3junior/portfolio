@@ -88,10 +88,10 @@ const Projects = () => {
                 <ul className="page-next custom bg-dark text-light d-inline-block py-2 px-4 mt-3 rounded mb-0">
                   <li>
                     <Link to="/" className="text-light">
-                      RAILALA
+                      RAILALA.COM
                     </Link>
+                    <AiOutlineRight />
                   </li>
-                  <AiOutlineRight />
                   <li>
                     <span className="text-primary">
                       {" "}
@@ -121,6 +121,8 @@ const Projects = () => {
                           <img
                             src={`${projectImageBasePath}${item.image}.jpg`}
                             className="img-fluid rounded-top"
+                            width="500"
+                            height="333"
                             alt={`Illustration of ${
                               language === "en" ? item.title : item.title_fr
                             }`}
@@ -235,4 +237,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default React.memo(Projects);
