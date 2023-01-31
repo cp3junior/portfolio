@@ -11,7 +11,7 @@ const Projects = () => {
   const { t, language } = React.useContext(AppContext);
 
   useLayoutEffect(() => {
-    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects_1.json`;
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects_2.json`;
 
     fetch(projectsUrl)
       .then((res) => res.json())
