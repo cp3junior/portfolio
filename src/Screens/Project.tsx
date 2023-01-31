@@ -41,7 +41,7 @@ const Project = () => {
   const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   useEffect(() => {
-    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects.json`;
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects_1.json`;
 
     fetch(projectsUrl)
       .then((res) => res.json())

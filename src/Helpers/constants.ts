@@ -14,31 +14,31 @@ export const skills: SkillsInterface[] = [
   },
   {
     id: 2,
-    value: "React Native",
-  },
-  {
-    id: 3,
     value: "TypeScript",
   },
   {
+    id: 3,
+    value: "HTML 5 / CSS 3",
+  },
+  {
     id: 4,
-    value: "Redux",
+    value: "NextJS",
   },
   {
     id: 5,
-    value: "VueJS",
-  },
-  {
-    id: 6,
     value: "NodeJS",
   },
   {
-    id: 7,
+    id: 6,
     value: "MySQL",
   },
   {
-    id: 8,
+    id: 7,
     value: "GraphQL",
+  },
+  {
+    id: 8,
+    value: "React Native",
   },
   {
     id: 9,

@@ -1,5 +1,23 @@
 [
   {
+    "id": 101,
+    "type": "Contribution",
+    "title": "Beachcomber Website Redesign",
+    "title_fr": "Refonte Siteweb Beachcomber",
+    "url": "www.beachcomber-hotels.com",
+    "stack": "NextJS, SASS, Bootstrap , API, Drupal, PM2, Adobe XD, RedMine, Git",
+    "image": "bch1",
+    "thumbnail1": "bch2",
+    "thumbnail2": "bch3",
+    "thumbnail3": "",
+    "description": "Contribution with the creation of the Hager Group's website. It is an e-commerce website that combines multiple store from multiple countries.",
+    "description_fr": "Contribution à la création du site internet de Hager Group. Il s'agit d'un site e-commerce qui combine plusieurs magasins de plusieurs pays.",
+    "client": "Beachcomber Hotels",
+    "country": "Madagascar",
+    "country_fr": "Madagascar",
+    "employer": "Esokia"
+  },
+  {
     "id": 1,
     "type": "Contribution",
     "title": "Hager Group Website",

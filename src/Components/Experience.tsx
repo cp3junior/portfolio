@@ -10,7 +10,7 @@ const Experience = () => {
   const [experiences, setExperiences] = useState<ExperienceInterface[]>([]);
 
   useLayoutEffect(() => {
-    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences.json`;
+    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences_1.json`;
 
     fetch(experienceUrl)
       .then((res) => res.json())

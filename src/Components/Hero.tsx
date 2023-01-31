@@ -7,9 +7,9 @@ import { AppContext } from "../App";
 const Hero = () => {
   const { t, language } = React.useContext(AppContext);
 
-  const pdfPath = `${
-    process.env.REACT_APP_CDN
-  }Assets/RAILALA Andriatsimarivo CV ${language === "en" ? "EN" : "FR"}.pdf`;
+  const pdfPath = `${process.env.REACT_APP_CDN}Assets/RAILALA CV ${
+    language === "en" ? "EN" : "FR"
+  }.pdf`;
   const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   return (
