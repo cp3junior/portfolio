@@ -1,0 +1,43 @@
+{
+  "header.home": "Acceuil",
+  "header.projects": "Projets",
+
+  "notfound.404": "Oops... 404 Non Trouvée",
+  "notfound.return": "Retour à la page d'acceuil",
+  "notfound.home": "Page d'acceuil",
+
+  "footer": "Appréciez-vous mon CV? Super! N'hésitez pas à me contacter par e-mail ou via LinkedIn. Si vous pensez que mon profil pourrait intéresser quelqu'un, n'hésitez pas à le partager.",
+  "skills": "Compétences",
+  "experience": "Expérience professionnelle",
+  "abilities": "Capacités",
+  "education": "Éducations",
+  "seeall": "Voir tout",
+
+  "project.detail": "Detail projet",
+  "project.info": "Info sur le projet",
+  "project.work": "Type de travail",
+  "project.employer": "Employeur",
+  "project.country": "Pays",
+  "project.demo": "Lien de demo",
+  "project.prev": "Précédent",
+  "project.next": "Suivant",
+  "project.search": "Chercher",
+  "project.searchkey": "Rechercher par mots-clés",
+  "project.noresult": "Pas de résultat trouvé pour",
+  "project.clear": "Réinitialiser",
+  "project.allprojects": "Tous les projets",
+  "project.tech": "Technologie",
+
+  "hero.react": "Développeur Web",
+  "hero.download": "Télécharger CV",
+  "hero.name": "Je suis RAILALA Andriatsimarivo",
+  "hero.view": "Voir Projets",
+  "hero.intro": "Développeur Web FullStack enthousiaste avec plus de 6 ans d'expérience, passionné par la création de solutions technologiques innovantes. Mon parcours professionnel m'a permis de concevoir et de réaliser divers sites web dans des domaines variés. Mes compétences s'accompagnent de ma capacité d'adaptation agile et de mon aptitude à communiquer efficacement.",
+
+  "abilities.bilingual": "Bilingue",
+  "abilities.bilingual.desc": "<b>Francophone</b> qui possède également de bonnes compétences en <b>anglais</b> de niveau avancé.",
+  "abilities.self": "Auto Motivé",
+  "abilities.self.desc": "<b>Enthousiaste</b> et <b>passionné</b> par la technologie. Aime <b>apprendre</b> de nouvelles technologies.",
+  "abilities.adapt": "Adaptabilité",
+  "abilities.adapt.desc": "<b>Sociable</b> et <b>soucieux</b> de comprendre et de répondre à tous les besoins des <b>clients</b>."
+}
