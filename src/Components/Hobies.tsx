@@ -1,11 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { AiOutlineCode } from "react-icons/ai";
 
 import { AppContext } from "../App";
 import { skills } from "../Helpers/constants";
 
 const Hobies = () => {
-  const { t } = React.useContext(AppContext);
+  const { t } = useContext(AppContext);
 
   return (
     <section className="section pb-10 pt-0 skillsection">

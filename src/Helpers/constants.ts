@@ -10,50 +10,50 @@ export const projectImageBasePath = `${process.env.REACT_APP_CDN}Assets/projects
 export const skills: SkillsInterface[] = [
   {
     id: 1,
-    value: "ReactJS",
+    value: "ReactJS / NextJS",
   },
   {
     id: 2,
-    value: "TypeScript",
+    value: "TypeScript / ES6+",
   },
   {
     id: 3,
-    value: "HTML 5 / CSS 3",
+    value: "NodeJS / ExpressJS",
   },
   {
     id: 4,
-    value: "NextJS",
+    value: "SQL / NoSQL",
   },
   {
     id: 5,
-    value: "NodeJS",
+    value: "HTML 5 / CSS 3",
   },
   {
     id: 6,
-    value: "MySQL",
-  },
-  {
-    id: 7,
-    value: "GraphQL",
-  },
-  {
-    id: 8,
     value: "React Native",
   },
   {
-    id: 9,
+    id: 7,
+    value: "Unit Testing",
+  },
+  {
+    id: 8,
     value: "CI/CD",
   },
   {
+    id: 9,
+    value: "RESTful API",
+  },
+  {
     id: 10,
-    value: "AWS",
+    value: "Git",
   },
   {
     id: 11,
-    value: "SASS",
+    value: "Agile",
   },
   {
     id: 12,
-    value: "PWA",
+    value: "Bash",
   },
 ];

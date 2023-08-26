@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { AppContext } from "../App";
@@ -7,7 +7,7 @@ const NotFound = () => {
   const { t } = useContext(AppContext);
 
   useEffect(() => {
-    document.title = "RAILALA Andriatsimarivo Resume - 404";
+    document.title = "RAILALA Andriatsimarivo - 404 Not found.";
   }, []);
 
   return (

@@ -1,11 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { AiFillGithub, AiFillMail, AiFillLinkedin } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 import { AppContext } from "../App";
 
 const Footer = () => {
-  const { t } = React.useContext(AppContext);
+  const { t } = useContext(AppContext);
 
   return (
     <>
@@ -18,7 +18,7 @@ const Footer = () => {
               </Link>
               <p className="para-desc mx-auto mt-4">
                 {t(
-                  "You like what I do? Easy! Don't hesitate to drop a line via email or LinkedIn. If your colleagues might have an interest to my profile, don't hesitate to share my online portfolio with them.",
+                  "Do you find my resume appealing? Great! Don't hesitate to get in touch via email or LinkedIn. If you believe my profile could be intriguing to others, feel free to share it.",
                   "footer"
                 )}
               </p>
@@ -35,7 +35,7 @@ const Footer = () => {
                 </li>
                 <li className="list-inline-item mr-2">
                   <a
-                    href="https://www.linkedin.com/in/railala-andriatsimarivo-b92570122"
+                    href="https://www.linkedin.com/in/railala-andriatsimarivo"
                     target="_blank"
                     rel="noreferrer"
                     title="LinkedIn Profile"
@@ -60,7 +60,7 @@ const Footer = () => {
       </footer>
       <footer className="footer footer-bar bg-dark">
         <div className="container text-foot text-center">
-          <p className="mb-0">© 2022 RAILALA Andriatsimarivo.</p>
+          <p className="mb-0">© 2023 RAILALA Andriatsimarivo.</p>
         </div>
       </footer>
     </>

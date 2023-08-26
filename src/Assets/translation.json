@@ -6,7 +6,7 @@
   "notfound.return": "Retour à la page d'acceuil",
   "notfound.home": "Page d'acceuil",
 
-  "footer": "Vous aimez ce que je fais ? Simple! N'hésitez pas à laisser envoyer une ligne par e-mail ou LinkedIn. Si vos collègues sont susceptibles d'être intéressés par mon profil, n'hésitez pas à partager mon profil avec eux ",
+  "footer": "Appréciez-vous mon CV? Super! N'hésitez pas à me contacter par e-mail ou via LinkedIn. Si vous pensez que mon profil pourrait intéresser quelqu'un, n'hésitez pas à le partager.",
   "skills": "Compétences",
   "experience": "Expérience professionnelle",
   "abilities": "Capacités",
@@ -28,11 +28,11 @@
   "project.allprojects": "Tous les projets",
   "project.tech": "Technologie",
 
-  "hero.react": "Développeur ReactJS",
+  "hero.react": "Développeur Web",
   "hero.download": "Télécharger CV",
   "hero.name": "Je suis RAILALA Andriatsimarivo",
   "hero.view": "Voir Projets",
-  "hero.intro": "Je suis un développeur ReactJS avec 5 ans d'expérience dans le développement Web FullStack. Au cours de mes années d'expériences, j'ai eu l'opportunité de travailler sur plusieurs sites web et applications mobiles dans divers domaines. Expérimenté à toutes les étapes du cycle de développement de projets Web dynamiques.",
+  "hero.intro": "Développeur Web FullStack enthousiaste avec plus de 6 ans d'expérience, passionné par la création de solutions technologiques innovantes. Mon parcours professionnel m'a permis de concevoir et de réaliser divers sites web dans des domaines variés. Mes compétences s'accompagnent de ma capacité d'adaptation agile et de mon aptitude à communiquer efficacement.",
 
   "abilities.bilingual": "Bilingue",
   "abilities.bilingual.desc": "<b>Francophone</b> qui possède également de bonnes compétences en <b>anglais</b> de niveau avancé.",

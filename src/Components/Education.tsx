@@ -1,22 +1,23 @@
-import React, { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useContext, memo } from "react";
 import { BsStar } from "react-icons/bs";
 
 import { AppContext } from "../App";
 import { EducationInterface } from "../Helpers/interfaces";
+import { getTranslatedData } from "../Helpers/utils";
 
 const Education = () => {
-  const { t, language } = React.useContext(AppContext);
+  const { t, language } = useContext(AppContext);
   const [educations, setEducations] = useState<EducationInterface[]>([]);
 
   useLayoutEffect(() => {
-    const educationUrl = `${process.env.REACT_APP_CDN}Assets/educations.json`;
+    const educationUrl = `${process.env.REACT_APP_CDN}Assets/educations_1.json`;
 
     fetch(educationUrl)
       .then((res) => res.json())
       .then((data) => {
         setEducations(data);
       })
-      .catch((e) => console.log(e));
+      .catch(console.error);
   }, []);
 
   return (
@@ -48,24 +49,41 @@ const Education = () => {
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="duration date-label-left border rounded p-2 pl-4 pr-4 position-relative shadow text-left">
-                            {language === "en" ? item.start : item.start_fr} -{" "}
-                            {language === "en" ? item.end : item.end_fr}
+                            {getTranslatedData(
+                              language,
+                              item,
+                              "start",
+                              "start_fr"
+                            )}{" "}
+                            -{" "}
+                            {getTranslatedData(language, item, "end", "end_fr")}
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="event event-description-right rounded p-4 border float-left text-left">
                             <h5 className="title mb-0 text-capitalize">
-                              {language === "en" ? item.title : item.title_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "title",
+                                "title_fr"
+                              )}
                             </h5>
                             <small className="company">
-                              {language === "en"
-                                ? item.subtitle
-                                : item.subtitle_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "subtitle",
+                                "subtitle_fr"
+                              )}
                             </small>
                             <p className="timeline-subtitle mt-3 mb-0 text-muted">
-                              {language === "en"
-                                ? item.description
-                                : item.description_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "description",
+                                "description_fr"
+                              )}
                             </p>
                           </div>
                         </div>
@@ -79,24 +97,41 @@ const Education = () => {
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-1 order-2">
                           <div className="event event-description-left rounded p-4 border float-left text-right">
                             <h5 className="title mb-0 text-capitalize">
-                              {language === "en" ? item.title : item.title_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "title",
+                                "title_fr"
+                              )}
                             </h5>
                             <small className="company">
-                              {language === "en"
-                                ? item.subtitle
-                                : item.subtitle_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "subtitle",
+                                "subtitle_fr"
+                              )}
                             </small>
                             <p className="timeline-subtitle mt-3 mb-0 text-muted">
-                              {language === "en"
-                                ? item.description
-                                : item.description_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "description",
+                                "description_fr"
+                              )}
                             </p>
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-2 order-1">
                           <div className="duration duration-right rounded border p-2 pl-4 pr-4 position-relative shadow text-left">
-                            {language === "en" ? item.start : item.start_fr} -{" "}
-                            {language === "en" ? item.end : item.end_fr}
+                            {getTranslatedData(
+                              language,
+                              item,
+                              "start",
+                              "start_fr"
+                            )}{" "}
+                            -{" "}
+                            {getTranslatedData(language, item, "end", "end_fr")}
                           </div>
                         </div>
                       </div>
@@ -112,4 +147,4 @@ const Education = () => {
   );
 };
 
-export default React.memo(Education);
+export default memo(Education);

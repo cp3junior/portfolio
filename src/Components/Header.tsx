@@ -1,5 +1,4 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, memo } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { MdMenu } from "react-icons/md";
 import { BsFillMoonStarsFill, BsTranslate } from "react-icons/bs";
@@ -34,7 +33,6 @@ const Header = () => {
   const handleMobileNav = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setShowMobileNav((prev) => !prev);
-    console.log(showMobileNav);
   };
 
   const handleTheme = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -124,4 +122,4 @@ const Header = () => {
   );
 };
 
-export default React.memo(Header);
+export default memo(Header);

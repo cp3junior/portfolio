@@ -33,6 +33,7 @@ export interface ProjectInterface {
   country: string;
   country_fr: string;
   employer: string;
+  key: string;
 }
 
 export interface ExperienceInterface {

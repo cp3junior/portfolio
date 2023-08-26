@@ -1,4 +1,4 @@
-import React, { useState, useEffect, createContext } from "react";
+import { useState, useEffect, createContext } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import "./Styles/Dark.scss";
@@ -26,7 +26,7 @@ const App = () => {
     fetch(translationUrl)
       .then((res) => res.json())
       .then((data) => setTranslation(data))
-      .catch((e) => console.log(e));
+      .catch(console.error);
 
     const thm = localStorage.getItem("theme");
     if (thm === "dark") setIsDark(true);
@@ -63,7 +63,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="projects" element={<Projects />} />
-            <Route path="project/:projectId" element={<Project />} />
+            <Route path="project/:projectKey" element={<Project />} />
             <Route path="404" element={<NotFound />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

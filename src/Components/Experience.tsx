@@ -1,23 +1,24 @@
-import React, { useState, useLayoutEffect } from "react";
+import { useState, useLayoutEffect, useContext, memo } from "react";
 import { BsStar } from "react-icons/bs";
 import ReactHtmlParser from "react-html-parser";
 
 import { ExperienceInterface } from "../Helpers/interfaces";
 import { AppContext } from "../App";
+import { getTranslatedData } from "../Helpers/utils";
 
 const Experience = () => {
-  const { t, language } = React.useContext(AppContext);
+  const { t, language } = useContext(AppContext);
   const [experiences, setExperiences] = useState<ExperienceInterface[]>([]);
 
   useLayoutEffect(() => {
-    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences_1.json`;
+    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences_2.json`;
 
     fetch(experienceUrl)
       .then((res) => res.json())
       .then((data) => {
         setExperiences(data);
       })
-      .catch((e) => console.log(e));
+      .catch(console.error);
   }, []);
 
   return (
@@ -48,26 +49,42 @@ const Experience = () => {
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="duration date-label-left border rounded p-2 pl-4 pr-4 position-relative shadow text-left">
-                            {language === "en" ? item.start : item.start_fr} -{" "}
-                            {language === "en" ? item.end : item.end_fr}
+                            {getTranslatedData(
+                              language,
+                              item,
+                              "start",
+                              "start_fr"
+                            )}{" "}
+                            -{" "}
+                            {getTranslatedData(language, item, "end", "end_fr")}
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="event event-description-right rounded p-4 border float-left text-left">
                             <h5 className="title mb-0 text-capitalize">
-                              {language === "en" ? item.title : item.title_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "title",
+                                "title_fr"
+                              )}
                             </h5>
                             <small className="company">
-                              {language === "en"
-                                ? item.subtitle
-                                : item.subtitle_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "subtitle",
+                                "subtitle_fr"
+                              )}
                             </small>
                             <p className="timeline-subtitle mt-3 mb-0 text-muted">
-                              {" "}
                               {ReactHtmlParser(
-                                language === "en"
-                                  ? item.description
-                                  : item.description_fr
+                                getTranslatedData(
+                                  language,
+                                  item,
+                                  "description",
+                                  "description_fr"
+                                )
                               )}
                             </p>
                           </div>
@@ -82,26 +99,43 @@ const Experience = () => {
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-1 order-2">
                           <div className="event event-description-left rounded p-4 border float-left text-right">
                             <h5 className="title mb-0 text-capitalize">
-                              {language === "en" ? item.title : item.title_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "title",
+                                "title_fr"
+                              )}
                             </h5>
                             <small className="company">
-                              {language === "en"
-                                ? item.subtitle
-                                : item.subtitle_fr}
+                              {getTranslatedData(
+                                language,
+                                item,
+                                "subtitle",
+                                "subtitle_fr"
+                              )}
                             </small>
                             <p className="timeline-subtitle mt-3 mb-0 text-muted">
                               {ReactHtmlParser(
-                                language === "en"
-                                  ? item.description
-                                  : item.description_fr
+                                getTranslatedData(
+                                  language,
+                                  item,
+                                  "description",
+                                  "description_fr"
+                                )
                               )}
                             </p>
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-2 order-1">
                           <div className="duration duration-right rounded border p-2 pl-4 pr-4 position-relative shadow text-left">
-                            {language === "en" ? item.start : item.start_fr} -{" "}
-                            {language === "en" ? item.end : item.end_fr}
+                            {getTranslatedData(
+                              language,
+                              item,
+                              "start",
+                              "start_fr"
+                            )}{" "}
+                            -{" "}
+                            {getTranslatedData(language, item, "end", "end_fr")}
                           </div>
                         </div>
                       </div>
@@ -117,4 +151,4 @@ const Experience = () => {
   );
 };
 
-export default React.memo(Experience);
+export default memo(Experience);

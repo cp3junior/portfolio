@@ -1,11 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ImDownload } from "react-icons/im";
 
 import { AppContext } from "../App";
 
 const Hero = () => {
-  const { t, language } = React.useContext(AppContext);
+  const { t, language } = useContext(AppContext);
 
   const pdfPath = `${process.env.REACT_APP_CDN}Assets/RAILALA CV ${
     language === "en" ? "EN" : "FR"
@@ -25,7 +25,7 @@ const Hero = () => {
           <div className="col-lg-12">
             <div className="title-heading mt-5">
               <h1 className="sub-title mainsub">
-                {t("ReactJS Developer", "hero.react")}
+                {t("Web Developer", "hero.react")}
               </h1>
               <h2 className="heading text-primary mb-3">
                 <span>{t("I'm RAILALA Andriatsimarivo", "hero.name")}</span>
@@ -33,7 +33,7 @@ const Hero = () => {
               <p className="para-desc text-dark">
                 <span>
                   {t(
-                    "I am a ReactJS Developer with 5 years of experience in FullStack Web Development. During my years of experiences, I have had the opportunity to work on several websites and mobile applications in various fields. Experienced with all stages of the development cycle for dynamic web projects.",
+                    "Enthusiastic FullStack Web Developer with over 6 years of experience, passionate about creating innovative technological solutions. My professional journey has enabled me to design and develop various websites across diverse domains. My skills are complemented by my agile adaptability and effective communication prowess.",
                     "hero.intro"
                   )}
                 </span>

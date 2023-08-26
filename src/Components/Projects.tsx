@@ -1,17 +1,18 @@
-import React, { useLayoutEffect, useState } from "react";
+import { useContext, useLayoutEffect, useState, memo } from "react";
 import { BsEyeFill, BsTags, BsPerson } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 import { AppContext } from "../App";
 import { ProjectInterface } from "../Helpers/interfaces";
 import { projectImageBasePath } from "../Helpers/constants";
+import { getTranslatedData } from "../Helpers/utils";
 
 const Projects = () => {
   const [projects, setProjects] = useState<ProjectInterface[]>([]);
-  const { t, language } = React.useContext(AppContext);
+  const { t, language } = useContext(AppContext);
 
   useLayoutEffect(() => {
-    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects_2.json`;
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects_3.json`;
 
     fetch(projectsUrl)
       .then((res) => res.json())
@@ -24,7 +25,7 @@ const Projects = () => {
         }
         setProjects(arr);
       })
-      .catch((e) => console.log(e));
+      .catch(console.error);
   }, []);
 
   return (
@@ -44,8 +45,8 @@ const Projects = () => {
         </div>
         <div className="row">
           {projects.map((item) => (
-            <div key={item.id} className="col-lg-4 col-md-6 col-12 mt-4 pt-2">
-              <Link to={`/project/${item.id}`}>
+            <div key={item.key} className="col-lg-4 col-md-6 col-12 mt-4 pt-2">
+              <Link to={`/project/${item.key}`}>
                 <div className="blog-post rounded shadow">
                   <picture>
                     <source
@@ -57,9 +58,12 @@ const Projects = () => {
                       className="img-fluid rounded-top"
                       width="500"
                       height="333"
-                      alt={`Illustration of ${
-                        language === "en" ? item.title : item.title_fr
-                      }`}
+                      alt={`Illustration of ${getTranslatedData(
+                        language,
+                        item,
+                        "title",
+                        "title_fr"
+                      )}`}
                     />
                   </picture>
                   <div className="content pt-4 pb-4 p-3">
@@ -75,7 +79,7 @@ const Projects = () => {
                     </ul>
                     <h5 className="mb-3">
                       <span className="title text-dark">
-                        {language === "en" ? item.title : item.title_fr}
+                        {getTranslatedData(language, item, "title", "title_fr")}
                       </span>
                     </h5>
                   </div>
@@ -97,4 +101,4 @@ const Projects = () => {
   );
 };
 
-export default React.memo(Projects);
+export default memo(Projects);

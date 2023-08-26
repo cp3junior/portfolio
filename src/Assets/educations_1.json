@@ -1,0 +1,54 @@
+[
+  {
+    "id": 1,
+    "start": "Sept. 2017",
+    "start_fr": "Sept. 2017",
+    "end": "June 2019",
+    "end_fr": "Juin 2019",
+    "title": "Master's Degree in Computer Science",
+    "title_fr": "Master en informatique",
+    "subtitle": "Wuhan University of Technology - China",
+    "subtitle_fr": "Wuhan University of Technology - Chine",
+    "description": "I pursued a Master's degree in Computer Science with a specialized focus on Artificial Intelligence, delving into advanced concepts and applications within this cutting-edge field. Throughout the program, I acquired in-depth knowledge of reinforcement learning algorithms, their theoretical underpinnings, and practical implementation techniques. With a strong foundation in machine learning, I engaged in rigorous coursework, hands-on projects, and research endeavors that allowed me to explore the dynamic interplay between algorithms and real-world scenarios. My studies equipped me with the expertise to design, develop, and optimize intelligent systems that autonomously learn and adapt to their environment, contributing to the ever-evolving landscape of artificial intelligence.",
+    "description_fr": "J'ai poursuivi un diplôme de master en informatique avec une spécialisation en intelligence artificielle, explorant des concepts avancés et des applications au sein de ce domaine de pointe. Tout au long du programme, j'ai acquis une connaissance approfondie des algorithmes d'apprentissage par renforcement, de leurs fondements théoriques et des techniques de mise en œuvre pratique. Fort d'une solide base en apprentissage automatique, j'ai suivi des cours intensifs, réalisé des projets pratiques et participé à des travaux de recherche qui m'ont permis d'explorer l'interaction dynamique entre les algorithmes et les scénarios du monde réel. Mes études m'ont doté de l'expertise nécessaire pour concevoir, développer et optimiser des systèmes intelligents capables d'apprendre et de s'adapter de manière autonome à leur environnement, contribuant ainsi à l'évolution constante du domaine de l'intelligence artificielle."
+  },
+  {
+    "id": 2,
+    "start": "Sept. 2013",
+    "start_fr": "Sept. 2013",
+    "end": "June 2017",
+    "end_fr": "Juin 2017",
+    "title": "Bachelor's Degree in Computer Science",
+    "title_fr": "Licence en informatique",
+    "subtitle": "Wuhan University of Technology - China",
+    "subtitle_fr": "Wuhan University of Technology - Chine",
+    "description": "I completed a Bachelor's degree in Computer Science with a specialized focus on software engineering, which provided me with a comprehensive understanding of software development methodologies, practices, and principles. Throughout the program, I gained practical experience in designing, coding, and testing software applications, honing my skills in problem-solving, algorithm development, and code optimization. The curriculum encompassed a range of languages and tools, enabling me to tackle complex projects and collaborate effectively in team settings. This degree equipped me with a solid foundation in software engineering practices, positioning me to contribute effectively to the creation of robust and efficient software solutions in the ever-evolving technology landscape.",
+    "description_fr": "J'ai obtenu un diplôme de licence en informatique avec une spécialisation axée sur le génie logiciel, ce qui m'a offert une compréhension approfondie des méthodologies, des pratiques et des principes de développement de logiciels. Tout au long du programme, j'ai acquis une expérience pratique dans la conception, la programmation et les tests d'applications logicielles, affinant ainsi mes compétences en résolution de problèmes, en développement d'algorithmes et en optimisation de code. Le programme a englobé divers langages et outils, me permettant d'aborder des projets complexes et de collaborer efficacement au sein d'équipes. Ce diplôme m'a doté d'une base solide en pratiques de génie logiciel, me positionnant pour contribuer de manière efficace à la création de solutions logicielles robustes et efficaces dans le paysage technologique en constante évolution."
+  },
+  {
+    "id": 3,
+    "start": "Dec. 2012",
+    "start_fr": "Dec. 2012",
+    "end": "June 2013",
+    "end_fr": "Juin 2013",
+    "title": "Chinese Language",
+    "title_fr": "Langue Chinoise",
+    "subtitle": "Wuhan University of Geoscience - China",
+    "subtitle_fr": "Wuhan University of Geoscience - Chine",
+    "description": "Upon arriving in China, I embarked on a foundational Chinese language course to facilitate effective communication and integration into the local culture. This immersive experience provided me with essential language skills, enabling me to engage in everyday conversations, navigate daily activities, and comprehend basic written texts. Through comprehensive lessons and interactive exercises, I developed a fundamental understanding of Chinese grammar, vocabulary, and pronunciation. This language course significantly enhanced my ability to interact with locals, fostering a deeper connection with the community and enriching my overall experience in China.",
+    "description_fr": "À mon arrivée en Chine, j'ai suivi un cours de base en langue chinoise afin de faciliter la communication et mon intégration dans la culture locale. Cette expérience immersive m'a permis d'acquérir des compétences linguistiques essentielles, me permettant de participer à des conversations quotidiennes, de naviguer dans les activités courantes et de comprendre des textes écrits simples. Grâce à des leçons complètes et des exercices interactifs, j'ai développé une compréhension fondamentale de la grammaire, du vocabulaire et de la prononciation chinoise. Ce cours de langue a considérablement amélioré ma capacité à interagir avec les habitants, favorisant ainsi une connexion plus profonde avec la communauté et enrichissant mon expérience globale en Chine."
+  },
+  {
+    "id": 4,
+    "start": "Sept. 2008",
+    "start_fr": "Sept. 2008",
+    "end": "June 2009",
+    "end_fr": "Juin 2009",
+    "title": "High School Diploma",
+    "title_fr": "Baccalauréat",
+    "subtitle": "Lycée Privé Nomentsoa - Madagascar",
+    "subtitle_fr": "Lycée Privé Nomentsoa - Madagascar",
+    "description": "I successfully obtained my high school diploma, reflecting my commitment to academic achievement and a strong foundation of knowledge across various subjects. This accomplishment signifies my completion of a comprehensive curriculum, encompassing subjects such as mathematics, science, languages, and humanities. It marks a pivotal milestone in my educational journey, demonstrating my dedication to learning and readiness to embark on higher studies and professional pursuits.",
+    "description_fr": "BJ'ai obtenu avec succès mon Baccalauréat, témoignant de mon engagement envers la réussite académique et d'une solide base de connaissances dans diverses matières. Cette réalisation reflète mon achèvement d'un programme d'études complet, englobant des matières telles que les mathématiques, les sciences, les langues et les sciences humaines. Elle marque une étape cruciale dans mon parcours éducatif, démontrant ma volonté d'apprendre et ma préparation à entreprendre des études supérieures et des poursuites professionnelles."
+  }
+]

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState, useContext, memo } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import ReactHtmlParser from "react-html-parser";
 import { AiOutlineRight } from "react-icons/ai";
@@ -11,6 +11,7 @@ import {
 import { AppContext } from "../App";
 import { ProjectInterface } from "../Helpers/interfaces";
 import { projectImageBasePath } from "../Helpers/constants";
+import { getTranslatedData } from "../Helpers/utils";
 
 const Project = () => {
   const [countProjects, setCountProjects] = useState<number>(0);
@@ -31,34 +32,39 @@ const Project = () => {
     country: "",
     country_fr: "",
     employer: "",
+    key: "",
   });
 
   const params = useParams();
   const navigate = useNavigate();
-  const { t, language } = React.useContext(AppContext);
+  const { t, language } = useContext(AppContext);
 
-  const projectId = parseInt(params.projectId ? params.projectId : "0", 10);
+  const projectKey = params.projectKey || "";
+  const projectId = 0;
   const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   useEffect(() => {
-    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects_2.json`;
+    const projectsUrl = `${process.env.REACT_APP_CDN}Assets/projects_3.json`;
 
-    fetch(projectsUrl)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.length && projectId > 0 && projectId < data.length + 1) {
-          setCountProjects(data.length);
+    if (projectKey) {
+      fetch(projectsUrl)
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.length > 0) {
+            setCountProjects(data.length);
 
-          const prj = data.filter(
-            (item: ProjectInterface) => item.id === projectId
-          );
-          if (prj.length > 0) setProject(prj[0]);
-        } else {
-          navigate("/404");
-        }
-      })
-      .catch((e) => console.log(e));
-  }, [projectId, navigate]);
+            const prj = data.filter(
+              (item: ProjectInterface) => item.key === projectKey
+            );
+            if (prj.length > 0) setProject(prj[0]);
+            else navigate("/404");
+          } else {
+            navigate("/404");
+          }
+        })
+        .catch(console.error);
+    }
+  }, [projectKey, navigate]);
 
   const renderImg = (path: string | undefined) => {
     if (path) {
@@ -73,9 +79,12 @@ const Project = () => {
             className="img-fluid mx-auto d-block rounded mb-4 shadow"
             width="500"
             height="333"
-            alt={`Illustration of ${
-              language === "en" ? project.title : project.title_fr
-            }`}
+            alt={`Illustration of ${getTranslatedData(
+              language,
+              project,
+              "title",
+              "title_fr"
+            )}`}
           />
         </picture>
       );
@@ -98,8 +107,7 @@ const Project = () => {
             <div className="col-lg-12 text-center">
               <div className="page-next-level">
                 <h4 className="title">
-                  {" "}
-                  {language === "en" ? project.title : project.title_fr}{" "}
+                  {getTranslatedData(language, project, "title", "title_fr")}
                 </h4>
                 <ul className="page-next custom bg-dark text-light d-inline-block py-2 px-4 mt-3 rounded mb-0">
                   <li>
@@ -135,13 +143,21 @@ const Project = () => {
                 <div className="col-lg-12">
                   <div className="work-details">
                     <h4 className="title mb-3 border-bottom pb-3">
-                      {language === "en" ? project.title : project.title_fr}
+                      {getTranslatedData(
+                        language,
+                        project,
+                        "title",
+                        "title_fr"
+                      )}
                     </h4>
                     <p className="text-muted">
                       {ReactHtmlParser(
-                        language === "en"
-                          ? project.description
-                          : project.description_fr
+                        getTranslatedData(
+                          language,
+                          project,
+                          "description",
+                          "description_fr"
+                        )
                       )}
                     </p>
                   </div>
@@ -171,9 +187,12 @@ const Project = () => {
                       <li className="mt-3">
                         <b>{t("Country", "project.country")} : </b>
                         <span>
-                          {language === "en"
-                            ? project.country
-                            : project.country_fr}
+                          {getTranslatedData(
+                            language,
+                            project,
+                            "country",
+                            "country_fr"
+                          )}
                         </span>
                       </li>
                       {project.url && (
@@ -246,4 +265,4 @@ const Project = () => {
   );
 };
 
-export default React.memo(Project);
+export default memo(Project);

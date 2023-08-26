@@ -1,11 +1,11 @@
-import React from "react";
+import { useContext } from "react";
 import { BsTranslate, BsAward, BsEmojiSunglasses } from "react-icons/bs";
 import ReactHtmlParser from "react-html-parser";
 
 import { AppContext } from "../App";
 
 const Abilities = () => {
-  const { t } = React.useContext(AppContext);
+  const { t } = useContext(AppContext);
 
   return (
     <section className="section">
