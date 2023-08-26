@@ -14,7 +14,6 @@ import { projectImageBasePath } from "../Helpers/constants";
 import { getTranslatedData } from "../Helpers/utils";
 
 const Project = () => {
-  const [countProjects, setCountProjects] = useState<number>(0);
   const [project, setProject] = useState<ProjectInterface>({
     id: 0,
     type: "",
@@ -34,13 +33,13 @@ const Project = () => {
     employer: "",
     key: "",
   });
+  const [projects, setProjects] = useState<ProjectInterface[]>([]);
 
   const params = useParams();
   const navigate = useNavigate();
   const { t, language } = useContext(AppContext);
 
   const projectKey = params.projectKey || "";
-  const projectId = 0;
   const bgPath = `${process.env.REACT_APP_CDN}Assets/bg2.png`;
 
   useEffect(() => {
@@ -51,8 +50,7 @@ const Project = () => {
         .then((res) => res.json())
         .then((data) => {
           if (data.length > 0) {
-            setCountProjects(data.length);
-
+            setProjects(data);
             const prj = data.filter(
               (item: ProjectInterface) => item.key === projectKey
             );
@@ -90,6 +88,25 @@ const Project = () => {
       );
     }
     return null;
+  };
+
+  const getMoreProject = () => {
+    const indexCurrentProject = projects.findIndex(
+      (item) => item.key === projectKey
+    );
+
+    const nextProjectIndex =
+      indexCurrentProject + 1 === projects.length ? 0 : indexCurrentProject + 1;
+
+    const prevProjectIndex =
+      indexCurrentProject - 1 === -1
+        ? projects.length - 1
+        : indexCurrentProject - 1;
+
+    return {
+      next: projects?.[nextProjectIndex]?.key || "nodata",
+      previous: projects?.[prevProjectIndex]?.key || "nodata",
+    };
   };
 
   return (
@@ -231,10 +248,8 @@ const Project = () => {
               <ul className="pagination justify-content-center mb-0 list-unstyled">
                 <li>
                   <Link
-                    to={`/project/${projectId - 1}`}
-                    className={`pr-3 pl-3 pt-2 pb-2 ${
-                      projectId === 1 ? "disabled-link" : ""
-                    }`}
+                    to={`/project/${getMoreProject().previous}`}
+                    className="pr-3 pl-3 pt-2 pb-2"
                   >
                     <BsArrowLeftShort className="with-stroke mb2" />{" "}
                     {t("Prev", "project.prev")}
@@ -247,10 +262,8 @@ const Project = () => {
                 </li>
                 <li>
                   <Link
-                    to={`/project/${projectId + 1}`}
-                    className={`pr-3 pl-3 pt-2 pb-2 ${
-                      projectId === countProjects ? "disabled-link" : ""
-                    }`}
+                    to={`/project/${getMoreProject().next}`}
+                    className="pr-3 pl-3 pt-2 pb-2"
                   >
                     {t("Next", "project.next")}{" "}
                     <BsArrowRightShort className="with-stroke mb2" />

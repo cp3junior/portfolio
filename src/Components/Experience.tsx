@@ -11,7 +11,7 @@ const Experience = () => {
   const [experiences, setExperiences] = useState<ExperienceInterface[]>([]);
 
   useLayoutEffect(() => {
-    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences_2.json`;
+    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences_3.json`;
 
     fetch(experienceUrl)
       .then((res) => res.json())
@@ -45,7 +45,7 @@ const Experience = () => {
               {experiences.map((item, i) => {
                 if (i % 2 === 0) {
                   return (
-                    <div key={item.id} className="timeline-item mt-4">
+                    <div key={item.key} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6">
                           <div className="duration date-label-left border rounded p-2 pl-4 pr-4 position-relative shadow text-left">
@@ -94,7 +94,7 @@ const Experience = () => {
                   );
                 } else {
                   return (
-                    <div key={item.id} className="timeline-item mt-4">
+                    <div key={item.key} className="timeline-item mt-4">
                       <div className="row">
                         <div className="col-lg-6 col-md-6 col-sm-6 order-sm-1 order-2">
                           <div className="event event-description-left rounded p-4 border float-left text-right">

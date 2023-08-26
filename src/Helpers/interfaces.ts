@@ -37,7 +37,7 @@ export interface ProjectInterface {
 }
 
 export interface ExperienceInterface {
-  id: number;
+  key: string;
   start: string;
   start_fr: string;
   end: string;
