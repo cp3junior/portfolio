@@ -4,6 +4,7 @@ import { BsStar } from "react-icons/bs";
 import { AppContext } from "../App";
 import { EducationInterface } from "../Helpers/interfaces";
 import { getTranslatedData } from "../Helpers/utils";
+import TimelineItem from "./TimelineItem";
 
 const Education = () => {
   const { t, language } = useContext(AppContext);
@@ -42,103 +43,27 @@ const Education = () => {
               <BsStar className="fea icon-md-sm no-stroke" />
             </div>
             <div className="timeline-page pt-2 position-relative">
-              {educations.map((item, i) => {
-                if (i % 2 === 0) {
-                  return (
-                    <div key={item.id} className="timeline-item mt-4">
-                      <div className="row">
-                        <div className="col-lg-6 col-md-6 col-sm-6">
-                          <div className="duration date-label-left border rounded p-2 pl-4 pr-4 position-relative shadow text-left">
-                            {getTranslatedData(
-                              language,
-                              item,
-                              "start",
-                              "start_fr"
-                            )}{" "}
-                            -{" "}
-                            {getTranslatedData(language, item, "end", "end_fr")}
-                          </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-sm-6">
-                          <div className="event event-description-right rounded p-4 border float-left text-left">
-                            <h5 className="title mb-0 text-capitalize">
-                              {getTranslatedData(
-                                language,
-                                item,
-                                "title",
-                                "title_fr"
-                              )}
-                            </h5>
-                            <small className="company">
-                              {getTranslatedData(
-                                language,
-                                item,
-                                "subtitle",
-                                "subtitle_fr"
-                              )}
-                            </small>
-                            <p className="timeline-subtitle mt-3 mb-0 text-muted">
-                              {getTranslatedData(
-                                language,
-                                item,
-                                "description",
-                                "description_fr"
-                              )}
-                            </p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                } else {
-                  return (
-                    <div key={item.id} className="timeline-item mt-4">
-                      <div className="row">
-                        <div className="col-lg-6 col-md-6 col-sm-6 order-sm-1 order-2">
-                          <div className="event event-description-left rounded p-4 border float-left text-right">
-                            <h5 className="title mb-0 text-capitalize">
-                              {getTranslatedData(
-                                language,
-                                item,
-                                "title",
-                                "title_fr"
-                              )}
-                            </h5>
-                            <small className="company">
-                              {getTranslatedData(
-                                language,
-                                item,
-                                "subtitle",
-                                "subtitle_fr"
-                              )}
-                            </small>
-                            <p className="timeline-subtitle mt-3 mb-0 text-muted">
-                              {getTranslatedData(
-                                language,
-                                item,
-                                "description",
-                                "description_fr"
-                              )}
-                            </p>
-                          </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 col-sm-6 order-sm-2 order-1">
-                          <div className="duration duration-right rounded border p-2 pl-4 pr-4 position-relative shadow text-left">
-                            {getTranslatedData(
-                              language,
-                              item,
-                              "start",
-                              "start_fr"
-                            )}{" "}
-                            -{" "}
-                            {getTranslatedData(language, item, "end", "end_fr")}
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                }
-              })}
+              {educations.map((item, i) => (
+                <TimelineItem
+                  key={item.id}
+                  isRight={i % 2 === 0}
+                  start={getTranslatedData(language, item, "start", "start_fr")}
+                  end={getTranslatedData(language, item, "end", "end_fr")}
+                  title={getTranslatedData(language, item, "title", "title_fr")}
+                  subtitle={getTranslatedData(
+                    language,
+                    item,
+                    "subtitle",
+                    "subtitle_fr"
+                  )}
+                  description={getTranslatedData(
+                    language,
+                    item,
+                    "description",
+                    "description_fr"
+                  )}
+                />
+              ))}
             </div>
           </div>
         </div>
