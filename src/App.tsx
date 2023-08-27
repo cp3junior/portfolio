@@ -21,7 +21,7 @@ const App = () => {
   const [translation, setTranslation] = useState<TranslationInterface>({});
 
   useEffect(() => {
-    const translationUrl = `${process.env.REACT_APP_CDN}Assets/translation_1.json`;
+    const translationUrl = `${process.env.REACT_APP_CDN}Assets/translation_2.json`;
 
     fetch(translationUrl)
       .then((res) => res.json())

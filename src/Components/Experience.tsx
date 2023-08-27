@@ -11,7 +11,7 @@ const Experience = () => {
   const [experiences, setExperiences] = useState<ExperienceInterface[]>([]);
 
   useLayoutEffect(() => {
-    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences_3.json`;
+    const experienceUrl = `${process.env.REACT_APP_CDN}Assets/experiences_4.json`;
 
     fetch(experienceUrl)
       .then((res) => res.json())
@@ -29,7 +29,7 @@ const Experience = () => {
             <div className="section-title">
               <div className="titles">
                 <h4 className="title title-line text-uppercase mb-4 pb-4">
-                  {t("Work Experience", "experience")}
+                  {t("Experiences", "experience")}
                 </h4>
                 <span></span>
               </div>
